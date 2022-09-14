@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-
+import Login from './pages/Login';
+import Register from './pages/Register';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home';
+import { useDispatch } from "react-redux";
+import { auth } from "./firebase";
+import { setUser } from './redux/actions';
+import Header from './pages/Header';
+import { DataProvider } from './data/Context'
+import store from './redux/store';
 function App() {
+  const dispatch = useDispatch();
+  console.log("Store", store.getState())
+  const [profile, setProfile] = useState();
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setProfile(authUser)
+        dispatch(setUser(authUser))
+      } else {
+        dispatch(setUser(null))
+      }
+    })
+  }, [dispatch])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider>
+      <Router>
+        <Header profile={profile}  setProfile={setProfile}/>
+        <div className="App">
+          <Routes>
+            <Route exact path='/' element={<Home/>} />
+            <Route exact path='/login' element={<Login />} />
+            <Route exact path='/register' element={<Register />} />
+          </Routes>
+        </div>
+      </Router>
+    </DataProvider>
   );
 }
-
 export default App;
