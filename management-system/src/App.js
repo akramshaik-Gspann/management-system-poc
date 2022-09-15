@@ -10,6 +10,8 @@ import { setUser } from './redux/actions';
 import Header from './pages/Header';
 import { DataProvider } from './data/Context'
 import store from './redux/store';
+
+
 function App() {
   const dispatch = useDispatch();
   console.log("Store", store.getState())
@@ -24,10 +26,11 @@ function App() {
       }
     })
   }, [dispatch])
-  
+
   return (
     <DataProvider>
       <Router>
+       
         <Header profile={profile}  setProfile={setProfile}/>
         <div className="App">
           <Routes>
@@ -36,6 +39,7 @@ function App() {
             <Route exact path='/register' element={<Register />} />
           </Routes>
         </div>
+       
       </Router>
     </DataProvider>
   );
