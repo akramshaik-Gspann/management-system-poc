@@ -37,12 +37,9 @@ function App() {
           <Routes>
             
             <Route exact path='/login' element={<Login />} />
-<<<<<<< HEAD
             <Route exact path='/register' element={<Register />} />
             <Route exact path='/uplode' element={<Uplode />} />
-=======
             <Route exact path='/' element={<Register />} />
->>>>>>> 96b99ec07264a18bfcdc91415093a6601787c149
           </Routes>
         </div>
        
