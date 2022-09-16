@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
-import "../styles/Register.css";
 
 const Register = () => {
     const [state, setState] = useState({
-        displayName: "",
         email: "",
         password: "",
         passwordConfirm: ""
@@ -23,15 +21,15 @@ const Register = () => {
 
     const dispatch = useDispatch();
 
-    const { email, password, displayName, passwordConfirm } = state;
+    const { email, password, passwordConfirm } = state;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password !== passwordConfirm) {
             return;
         }
-        dispatch(registerInitiate(email, password, displayName));
-        setState({ email: "", displayName: "", password: "", passwordConfirm: "" });
+        dispatch(registerInitiate(email, password));
+        setState({ email: "", password: "", passwordConfirm: "" });
     };
 
     const handleChange = (e) => {
@@ -40,61 +38,83 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <div id="register-form">
-                <form className='form-signup' onSubmit={handleSubmit}>
-                    <h1 className='h3 mb-3 font-weight-normal' style={{ textAlign: "center" }}>
-                        Sign up
-                    </h1>
-                    <input
-                        type="text"
-                        id="displayName"
-                        className='form-control'
-                        placeholder='Full Name'
-                        name='displayName'
-                        onChange={handleChange}
-                        value={displayName}
-                        required
-                    />
-                    <input
-                        type="email"
-                        id="user-email"
-                        className='form-control'
-                        placeholder='Email Address'
-                        name='email'
-                        onChange={handleChange}
-                        value={email}
-                        required
-                    />
-                    <input
-                        type="password"
-                        id="inputPassword"
-                        className='form-control'
-                        placeholder='Password'
-                        name='password'
-                        onChange={handleChange}
-                        value={password}
-                        required
-                    />
-                    <input
-                        type="password"
-                        id="passwordConfirm"
-                        className='form-control'
-                        placeholder='Repeat Password'
-                        name='passwordConfirm'
-                        onChange={handleChange}
-                        value={passwordConfirm}
-                        required
-                    />
-                    <button className='btn btn-primary btn-block' type='submit'>
-                        <i className='fas fa-user-plus'></i> Sign Up
-                    </button>
-                    <Link to="/login">
-                        <i className='fas fa-angle-left'></i> Back
-                    </Link>
-                </form>
-                <br />
-            </div>
+        <div className='container'>
+           
+            <section className="h-screen">
+                <div className="px-6 h-full text-gray-800">
+                    <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+                        <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                            <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
+                            <h5 className='text-center text-xl'>Sign Up</h5>
+                                <div className="md:flex md:items-center mb-6">
+                                    <div className="md:w-1/3">
+                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                                            Email:
+                                        </label>
+                                    </div>
+                                    <div className="md:w-2/3">
+                                        <input
+                                            type="email"
+                                            id="user-email"
+                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            placeholder='Email Address'
+                                            name='email'
+                                            onChange={handleChange}
+                                            value={email}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="md:flex md:items-center mb-6">
+                                    <div className="md:w-1/3">
+                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                                            Password:
+                                        </label>
+                                    </div>
+                                    <div className="md:w-2/3">
+                                        <input
+                                            type="password"
+                                            id="inputPassword"
+                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            placeholder='Password'
+                                            name='password'
+                                            onChange={handleChange}
+                                            value={password}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="md:flex md:items-center mb-6">
+                                    <div className="md:w-1/3">
+                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                                            Confirm Password:
+                                        </label>
+                                    </div>
+                                    <div className="md:w-2/3">
+                                        <input
+                                            type="password"
+                                            id="passwordConfirm"
+                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            placeholder='Repeat Password'
+                                            name='passwordConfirm'
+                                            onChange={handleChange}
+                                            value={passwordConfirm}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="md:flex md:items-center lg:text-center">
+                                    <div className="m-auto">
+                                        <button type="submit" className="inline-block px-7 py-3 text-black font-medium text-sm leading-snug capitalise border border-solid border-gray-300 rounded shadow-md  hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                            Register
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
