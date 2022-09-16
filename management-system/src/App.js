@@ -10,7 +10,7 @@ import { setUser } from './redux/actions';
 import Header from './pages/Header';
 import { DataProvider } from './data/Context'
 import store from './redux/store';
-
+import Gridtable from './pages/GridTable';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function App() {
         <Header profile={profile}  setProfile={setProfile}/>
         <div className="App">
           <Routes>
-            <Route exact path='/' element={<Home/>} />
+            <Route exact path='/' element={<Gridtable/>} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/register' element={<Register />} />
           </Routes>
