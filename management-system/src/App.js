@@ -34,9 +34,9 @@ function App() {
         <Header profile={profile}  setProfile={setProfile}/>
         <div className="App">
           <Routes>
-            <Route exact path='/' element={<Home/>} />
+            
             <Route exact path='/login' element={<Login />} />
-            <Route exact path='/register' element={<Register />} />
+            <Route exact path='/' element={<Register />} />
           </Routes>
         </div>
        
