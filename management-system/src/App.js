@@ -10,6 +10,8 @@ import { setUser } from './redux/actions';
 import Header from './pages/Header';
 import { DataProvider } from './data/Context'
 import store from './redux/store';
+import Uplode from './Component/Uplode/Uplode';
+import Ag from './Component/Uplode/Ag';
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
             <Route exact path='/' element={<Home/>} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/register' element={<Register />} />
+            <Route exact path='/uplode' element={<Uplode />} />
+            <Route exact path='/ag' element={<Ag />} />
           </Routes>
         </div>
        
