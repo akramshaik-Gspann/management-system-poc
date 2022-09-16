@@ -16,12 +16,12 @@ const Login = ({ cabinData }) => {
 
     useEffect(() => {
         console.log("current user", currentUser)
-        // if (currentUser && cabinData._id) {
-        //     navigate('/cabinconfirmation');
-        // }
-        // else {
-        //     navigate('/login')
-        // }
+        if (currentUser) {
+            navigate('/gridtable');
+        }
+        else {
+            navigate('/login')
+        }
     }, [currentUser, navigate]);
 
     const dispatch = useDispatch();
@@ -33,9 +33,9 @@ const Login = ({ cabinData }) => {
         }
         dispatch(loginInitiate(email, password));
         setState({ email: "", password: "" });
-        navigate('/xyz');
+        navigate('/gridtable');
         dispatch(logoutInitiate());
-        navigate('/');
+        navigate('/login');
     };
 
     const handleChange = (e) => {

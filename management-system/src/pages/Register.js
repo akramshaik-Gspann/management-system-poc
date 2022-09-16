@@ -30,6 +30,7 @@ const Register = () => {
         }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
+        navigate('/login');
     };
 
     const handleChange = (e) => {
