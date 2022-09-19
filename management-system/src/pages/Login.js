@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginInitiate } from '../redux/actions';
 // import "../styles/Login.css";
 import { logoutInitiate } from '../redux/actions';
@@ -53,10 +53,11 @@ const Login = ({ cabinData }) => {
                             <img src={formimg} />
                         </div>
                         <div className="mb-12 md:mb-0">
-                            <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
-                                <h5 className='text-center text-xl'>Sign In</h5>
+                            <form className="w-full pb-24 pl-12 pr-12 user-form" onSubmit={handleSubmit}>
+                            <h1 className='text-center text-4xl font-bold mb-3'>Sign In to Dashbord</h1>
+                            <p className='text-center mb-3'><span>Don't have an Account yet?</span> <Link to="/register" className='forlogin'>Register</Link></p>
                                 <div className="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
+                                    <div className="">
                                         <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
