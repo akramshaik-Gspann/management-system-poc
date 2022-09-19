@@ -162,15 +162,14 @@ function Gridtable() {
         </Button>
       </Grid>
       <Grid align="right">
-        {/* <Button variant="contained" color="primary" onClick={handleClickOpen}>
-          filter
-        </Button> */}
+        <Button variant="contained">filter</Button>
         <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
           <option value="All">All</option>
           <option value="Jeans">Jeans</option>
           <option value="Shirts">Shirts</option>
           <option value="Trousers">Trousers</option>
           <option value="Jumpers">Jumpers</option>
+          Filter
         </select>
       </Grid>
       <div className="ag-theme-alpine" style={{ height: "400px" }}>
