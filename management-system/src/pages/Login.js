@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { loginInitiate } from '../redux/actions';
 // import "../styles/Login.css";
 import { logoutInitiate } from '../redux/actions';
+import formimg from '../Images/form.png';
 
 const Login = ({ cabinData }) => {
     const [state, setState] = useState({
@@ -48,7 +49,10 @@ const Login = ({ cabinData }) => {
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                        <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                        <div className='form-left'>
+                            <img src={formimg} />
+                        </div>
+                        <div className="mb-12 md:mb-0">
                             <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
                                 <h5 className='text-center text-xl'>Sign In</h5>
                                 <div className="md:flex md:items-center mb-6">

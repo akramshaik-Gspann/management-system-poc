@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
 import formimg from '../Images/form.png';
+
 const Register = () => {
     const [state, setState] = useState({
         email: "",
@@ -40,17 +41,16 @@ const Register = () => {
 
     return (
         <div className='container'>
-           
+
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                        <div className='xyz'>
-<img src={formimg} alt=""/>
+                        <div className='form-left'>
+                            <img src={formimg} />
                         </div>
-                        <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                        <div className="xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                        <div className="mb-12 md:mb-0">
                             <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
-                            <h5 className='text-center text-xl'>Sign Up</h5>
+                                <h5 className='text-center text-xl'>Sign Up</h5>
                                 <div className="md:flex md:items-center mb-6">
                                     <div className="md:w-1/3">
                                         <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -118,7 +118,6 @@ const Register = () => {
                             </form>
                         </div>
                     </div>
-                </div>
                 </div>
             </section>
         </div>
