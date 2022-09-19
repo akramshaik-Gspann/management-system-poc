@@ -44,10 +44,14 @@ const Register = () => {
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+<<<<<<< HEAD
                         <div className='xyz'>
 <img src={formimg}/>
                         </div>
                         <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+=======
+                        <div className="xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+>>>>>>> d854e985e94a941aab9a646e82260a91f7dbe51d
                             <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
                             <h5 className='text-center text-xl'>Sign Up</h5>
                                 <div className="md:flex md:items-center mb-6">
