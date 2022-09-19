@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { auth } from "./firebase";
 import { setUser } from './redux/actions';
 import Header from './pages/Header';
-import { DataProvider } from './data/Context'
 import store from './redux/store';
 import Gridtable from './pages/GridTable';
 import Uplod from './Component/Uplod/Uplod';
@@ -31,8 +30,7 @@ function App() {
   }, [dispatch])
 
   return (
-    <DataProvider>
-      <Router>
+    <Router>
        
         <Header profile={profile}  setProfile={setProfile}/>
         <div className="App">
@@ -47,7 +45,6 @@ function App() {
         </div>
        
       </Router>
-    </DataProvider>
   );
 }
 export default App;

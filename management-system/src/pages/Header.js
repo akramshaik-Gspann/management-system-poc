@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import "firebase/compat/firestore";
-import Menu from '../Images/svg/bars-solid.svg'
-import Close from '../Images/svg/times-solid.svg'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { logoutInitiate } from '../redux/actions';
