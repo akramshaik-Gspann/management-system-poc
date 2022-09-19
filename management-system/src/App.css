@@ -1,3 +1,12 @@
+.head{
+  color: #ffff;
+}
+
+.head li a{
+  color: #ffff;
+  font-weight: 500;
+}
+
 .user-form p {
   color: #397EF6;
   font-weight: 500;
