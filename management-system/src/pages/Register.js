@@ -52,13 +52,13 @@ const Register = () => {
                             <form className="w-full pb-24 pl-12 pr-12 user-form" onSubmit={handleSubmit}>
                                 <h1 className='text-center text-4xl font-bold mb-3'>Sign Up</h1>
                                 <p className='text-center mb-3'><span>Already a member?</span> <Link to="/login" className='forlogin'>Login</Link></p>
-                                <div className="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                                <div className="md:items-center mb-6">
+                                    <div className="md:w-100">
+                                        <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="email"
                                             id="user-email"
@@ -71,13 +71,13 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                                <div className="md:items-center mb-6">
+                                    <div className="md:w-100">
+                                        <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-password">
                                             Password:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="password"
                                             id="inputPassword"
@@ -90,13 +90,13 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                                <div className="md:items-center mb-6">
+                                    <div className="md:w-100">
+                                        <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-password">
                                             Confirm Password:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="password"
                                             id="passwordConfirm"
@@ -112,7 +112,7 @@ const Register = () => {
                                 <div className="md:flex md:items-center lg:text-center">
                                     <div className="m-auto">
                                         <button type="submit" className="inline-block px-7 py-3 text-black font-medium text-sm leading-snug capitalise border border-solid border-gray-300 rounded shadow-md  hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                            Create an Account
+                                            Create
                                         </button>
                                     </div>
                                 </div>

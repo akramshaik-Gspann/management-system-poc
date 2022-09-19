@@ -1,3 +1,11 @@
+*{
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 .user-form p {
   color: #397EF6;
   font-weight: 500;
