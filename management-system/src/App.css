@@ -2,7 +2,15 @@
   color: #397EF6;
   font-weight: 500;
 }
+
+.user-form p span {
+  color: #a3a3a3;
+}
+
+.user-form label {
+  color: #a3a3a3;
+}
 .user-form button{
   background-color: #397EF6;
-  color: white;
+  color: #fff;
 }
