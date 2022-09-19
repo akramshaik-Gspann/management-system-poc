@@ -1,7 +1,6 @@
 {
   "users": [
     {
-<<<<<<< Updated upstream
       "catalogId": "qwe",
       "catalogType": "shirt",
       "itemName": "Shirts",
@@ -10,26 +9,6 @@
       "Stock": "20",
       "lastUpdated": "22/22/22",
       "id": "mm3Er2j"
-=======
-      "catalogId": "BMR",
-      "catalogType": "Jeans",
-      "itemName": "Cotton",
-      "priceNumber": "10000",
-      "color": "Red",
-      "Stock": "2",
-      "lastUpdated": "13-02-2020",
-      "id": 1
-    },
-    {
-      "catalogId": "GMR",
-      "catalogType": "Shirts",
-      "itemName": "Silk",
-      "priceNumber": "500",
-      "color": "Black",
-      "Stock": "1",
-      "lastUpdated": "20-01-2020",
-      "id": 2
->>>>>>> Stashed changes
     }
   ]
 }
