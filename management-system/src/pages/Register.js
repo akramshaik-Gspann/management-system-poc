@@ -51,6 +51,8 @@ const Register = () => {
                         <div className="mb-12 md:mb-0">
                             <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
                                 <h5 className='text-center text-xl'>Sign Up</h5>
+                            <h5 className='text-center text-xl'>Sign Up to Dashbord</h5>
+                            <p><span>Already a member?</span> Login</p>
                                 <div className="md:flex md:items-center mb-6">
                                     <div className="md:w-1/3">
                                         <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
