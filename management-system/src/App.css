@@ -1,11 +1,11 @@
-*{
+/* *{
   -ms-overflow-style: none;
 }
 
 ::-webkit-scrollbar {
   display: none;
 
-}
+} */
 .head{
   color: #ffff;
 }
@@ -31,3 +31,10 @@
   background-color: #397EF6;
   color: #fff;
 }
+.form-left img{
+  height: 550px;
+}
+/* .main-form{
+  width: 70%;
+  margin: auto;
+} */
