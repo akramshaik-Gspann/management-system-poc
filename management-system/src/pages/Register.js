@@ -50,7 +50,7 @@ const Register = () => {
                         </div>
                         <div className="mb-12 md:mb-0">
                             <form className="w-full pb-24 pl-12 pr-12 user-form" onSubmit={handleSubmit}>
-                                <h1 className='text-center text-4xl font-bold mb-3'>Sign Up to Dashbord</h1>
+                                <h1 className='text-center text-4xl font-bold mb-3'>Sign Up</h1>
                                 <p className='text-center mb-3'><span>Already a member?</span> <Link to="/login" className='forlogin'>Login</Link></p>
                                 <div className="md:flex md:items-center mb-6">
                                     <div className="md:w-1/3">

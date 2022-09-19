@@ -54,15 +54,15 @@ const Login = ({ cabinData }) => {
                         </div>
                         <div className="mb-12 md:mb-0">
                             <form className="w-full pb-24 pl-12 pr-12 user-form" onSubmit={handleSubmit}>
-                            <h1 className='text-center text-4xl font-bold mb-3'>Sign In to Dashbord</h1>
+                            <h1 className='text-center text-4xl font-bold mb-3'>Sign In</h1>
                             <p className='text-center mb-3'><span>Don't have an Account yet?</span> <Link to="/register" className='forlogin'>Register</Link></p>
-                                <div className="md:flex md:items-center mb-6">
+                                <div className="md:items-center mb-6">
                                     <div className="">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                                        <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="email"
                                             id="inputEmail"
@@ -75,13 +75,13 @@ const Login = ({ cabinData }) => {
                                         />
                                     </div>
                                 </div>
-                                <div className="md:flex md:items-center mb-6">
+                                <div className="md:items-center mb-6">
                                     <div className="md:w-1/3">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                                        <label className="block text-gray-500 font-bold md:text- mb-1left md:mb-0 pr-4" for="inline-password">
                                             Password:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="password"
                                             id="inputPassword"
