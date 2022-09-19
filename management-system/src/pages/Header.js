@@ -16,6 +16,7 @@ function Header({ profile, setProfile }) {
     const handleAuth = () => {
         if (currentUser) {
             dispatch(logoutInitiate());
+            
             setProfile();
             console.log("Profile After Logout", profile);
         }
