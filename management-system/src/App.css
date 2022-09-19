@@ -1,97 +1,124 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* *{
+  -ms-overflow-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar {
+  display: none;
+
+} */
+.head {
+  color: #ffff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.head li a {
+  color: #ffff;
+  font-weight: 500;
+}
+
+.user-form p {
+  color: #397EF6;
+  font-weight: 500;
+}
+
+.user-form p span {
+  color: #a3a3a3;
+}
+
+.user-form label {
+  color: #a3a3a3;
+  font-weight: 400;
+}
+
+.user-form button {
+  background-color: #397EF6;
+  color: #fff;
+}
+
+.user-form input {
+  color: #a3a3a3;
+  font-size: 13px;
+}
+
+.form-left img {
+  height: 550px;
+  width: 100%;
+}
+
+.user-logout {
+  position: relative;
+}
+
+.image {
+  display: block;
+  width: 30px;
+  height: auto;
+  top: 3px;
+  left: 5px;
+}
+
+.overlay {
+  position: absolute;
+  left: 2px;
+  top: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #f1f1f1;
+  width: 35px;
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 10px;
+  font-weight: normal;
+  text-align: center;
+  color: #000 !important;
+  cursor: pointer;
+}
+
+<<<<<<< Updated upstream
+.user-logout:hover .overlay {
+  opacity: 1;
+=======
+.ag-theme-alpine {
+  --ag-header-height: 30px;
+  --ag-border-color:black;
+  margin-top: 20px;
+  --ag-borders-row: dashed 5px;
+  /* --ag-row-border-color: rgb(150, 150, 200); */
+
+  --ag-header-foreground-color: white;
+  --ag-header-background-color: black;
+
+  text-align: center;
+    /* then add back a border between rows */
+    --ag-borders-row: dashed 1px;
+    /* --ag-row-border-color: black; */
+  
+}
+
+.ag-theme-alpine .ag-header {
+  font-family: 'Times New Roman', Times, serif;
+}
+.ag-theme-alpine .ag-header-group-cell {
+  font-weight: normal;
+  font-size: 22px;
+  --ag-borders-row: dashed 1px;
+}
+.ag-theme-alpine .ag-header-cell {
+  font-size: 14px;
+}
+
+.example-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.grid-wrapper {
+  flex: 1 1 0px;
+  width: 100%;
 }
 
-.box {
-  width: 40%;
-  margin: auto;
+#myGrid {
+  height: 100%;
+>>>>>>> Stashed changes
 }
-
-.row {
-  margin: 0px;
-  padding: 15px;
-}
-
-.button_refresh {
-  padding: 0;
-  margin-bottom: 5px;
-}
-
-.box .form-signin {
-  padding: 0px !important;
-}
-
-h5{
-  margin-bottom: 15px;
-}
-tr,
-th {
-  vertical-align: middle;
-}
-
-.edit {
-  margin-right: 10px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-.for-mobile{
-  display: none;
-}
-@media only screen and (max-width: 767px) {
-  .cabin-table{
-    overflow-x: scroll;
-    padding: 0px;
-  }
-  .delete{
-    font-size: 13px;
-    padding: 0;
-    background-color: inherit;
-    color: #000;
-    border: 0px;
-  }
-  .edit{
-    font-size: 13px;
-    padding: 0;
-    background-color: inherit;
-    color: #000;
-    border: 0px;
-  }
- .for-desktop{
-  display: none;
- }
- .for-mobile{
-  display: block;
-  text-align: center;
- }
-}
-

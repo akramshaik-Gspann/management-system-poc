@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginInitiate } from '../redux/actions';
 // import "../styles/Login.css";
 import { logoutInitiate } from '../redux/actions';
@@ -46,26 +46,25 @@ const Login = ({ cabinData }) => {
 
     return (
         <div className='container'>
-            <section className="h-screen">
+            <section className='main-form'>
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                        <div className='form-left'>
-                            <img src={formimg} />
-                        </div>
-                        <div className="mb-12 md:mb-0">
-                            <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
-                                <h5 className='text-center text-xl'>Sign In</h5>
-                                <div className="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+
+                        <div className="xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                            <form className="w-full pl-12 pr-12 user-form" onSubmit={handleSubmit}>
+                                <h1 className='text-center text-4xl font-bold mb-3'>Sign In</h1>
+                                <p className='text-center mb-3'><span>Don't have an Account yet?</span> <Link to="/register" className='forlogin'>Register</Link></p>
+                                <div className="md:items-center mb-6">
+                                    <div className="">
+                                        <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="email"
                                             id="inputEmail"
-                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            className="form-control block w-full px-2 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             placeholder='Email'
                                             name='email'
                                             onChange={handleChange}
@@ -74,17 +73,17 @@ const Login = ({ cabinData }) => {
                                         />
                                     </div>
                                 </div>
-                                <div className="md:flex md:items-center mb-6">
+                                <div className="md:items-center mb-6">
                                     <div className="md:w-1/3">
-                                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                                        <label className="block text-gray-500 font-bold md:text- mb-1left md:mb-0 pr-4" for="inline-password">
                                             Password:
                                         </label>
                                     </div>
-                                    <div className="md:w-2/3">
+                                    <div className="md:w-100">
                                         <input
                                             type="password"
                                             id="inputPassword"
-                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            className="form-control block w-full px-2 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             placeholder='Password'
                                             name='password'
                                             onChange={handleChange}
@@ -94,18 +93,20 @@ const Login = ({ cabinData }) => {
                                     </div>
                                 </div>
                                 <div className="md:flex md:items-center lg:text-center">
-                                    <div className="m-auto">
-                                        <button type="submit" className="inline-block px-7 py-3 text-black font-medium text-sm leading-snug capitalise border border-solid border-gray-300 rounded shadow-md  hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    <div className="m-auto w-100">
+                                        <button type="submit" className="w-100 inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             Login
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        <div className='form-left grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0'>
+                            <img src={formimg} />
+                        </div>
                     </div>
                 </div>
             </section>
-
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { logoutInitiate } from '../redux/actions';
 import { useNavigate } from "react-router-dom";
+// import avtar from "../Images/img_avatar.png";
 
 function Header({ profile, setProfile }) {
 
@@ -14,15 +15,15 @@ function Header({ profile, setProfile }) {
     const handleAuth = () => {
         if (currentUser) {
             dispatch(logoutInitiate());
-            
             setProfile();
             console.log("Profile After Logout", profile);
+            navigate('/login');
         }
-        navigate('/login');
+        
     }
     return (
         <>
-            <nav className="w-full bg-white shadow">
+            <nav className="w-full bg-sky-600 shadow head">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -74,10 +75,15 @@ function Header({ profile, setProfile }) {
                         >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                 <li className="block text-gray-600 hover:text-blue-600">
-                                    <Link to="/register">Register</Link>
+                                    {profile && profile._delegate.email ? (<div className='user-logout'>
+                                        <Link className='overlay' to="/login" onClick={handleAuth}></Link></div>) : (<Link to="/register">Register</Link>)}
                                 </li>
                                 <li className="block text-gray-600 hover:text-blue-600">
-                                    {profile && profile._delegate.email ? (<Link to="/login" onClick={handleAuth}>Logout</Link>) : (<Link to="/login">Login</Link>)}
+                                    {profile && profile._delegate.email ? (<div className='user-logout'>
+                                        <div class="overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
+                                            <svg class="image absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                                        </div>
+                                        <span className='overlay' onClick={handleAuth}>Logout</span></div>) : (<Link to="/login">Login</Link>)}
                                 </li>
 
                             </ul>
