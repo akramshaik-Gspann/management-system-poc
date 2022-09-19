@@ -4,6 +4,15 @@
 
 ::-webkit-scrollbar {
   display: none;
+
+}
+.head{
+  color: #ffff;
+}
+
+.head li a{
+  color: #ffff;
+  font-weight: 500;
 }
 
 .user-form p {
