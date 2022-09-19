@@ -102,7 +102,6 @@ function Gridtable() {
   }
   return (
     <div className="App">
-      <h1 align="center">List of Products</h1>
       <Grid align="left">
         <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Product</Button>
       </Grid>

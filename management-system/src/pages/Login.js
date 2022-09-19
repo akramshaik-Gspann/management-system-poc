@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { loginInitiate } from '../redux/actions';
 // import "../styles/Login.css";
 import { logoutInitiate } from '../redux/actions';
