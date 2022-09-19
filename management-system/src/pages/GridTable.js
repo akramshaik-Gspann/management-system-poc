@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import '../App.css';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Grid, Button } from '@material-ui/core'
 import FormDialog from '../Component/dialog';
-const initialValue = { catalogId: "", catalogType: "", itemName: "", priceNumber: "", color: "", Stock: "", lastUpdated: "",}
+import CreateIcon from '@material-ui/icons/Create';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
+const initialValue = { catalogId: "", catalogType: "", itemName: "", priceNumber: "", color: "", Stock: "", lastUpdated: "", }
 function Gridtable() {
+  const containerStyle = useMemo(() => ({ width: '100%', height: '400px', padding: '50px' }), []);
+  const gridStyle = useMemo(() => ({ height: '400px', width: '100%' }), []);
   const [gridApi, setGridApi] = useState(null)
   const [tableData, setTableData] = useState(null)
   const [open, setOpen] = React.useState(false);
@@ -31,8 +36,8 @@ function Gridtable() {
     { headerName: "Last Updated", field: "lastUpdated" },
     {
       headerName: "Actions", field: "id", cellRendererFramework: (params) => <div>
-        <Button variant="outlined" color="primary" onClick={() => handleUpdate(params.data)}>Edit</Button>
-        <Button variant="outlined" color="secondary" onClick={() => handleDelete(params.value)}>Delete</Button>
+        <CreateIcon onClick={() => handleUpdate(params.data)} />&nbsp;&nbsp;
+        <DeleteOutlineIcon onClick={() => handleDelete(params.value)} />
       </div>
     }
   ]
@@ -95,12 +100,18 @@ function Gridtable() {
     }
   }
 
-  const defaultColDef = {
-    sortable: true,
-    flex: 1, filter: true,
-    // floatingFilter: true
-  }
+  const defaultColDef = useMemo(() => {
+    return {
+      resizable: true,
+      // sortable: true,
+      flex: 1,
+      // filter: true,
+      // floatingFilter: true
+    };
+  }, []);
+
   return (
+<<<<<<< Updated upstream
     <div className="App">
       <Grid align="left">
         <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Product</Button>
@@ -112,10 +123,28 @@ function Gridtable() {
           defaultColDef={defaultColDef}
           onGridReady={onGridReady}
         />
+=======
+    <div class="grid-wrapper">
+      <div className="ag-theme-alpine" style={containerStyle} >
+        <Grid align="left">
+          <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Product</Button>
+        </Grid>
+        <div className="ag-theme-alpine">
+          <div id="myGrid" className='grid-wrapper' style={gridStyle}>
+            <AgGridReact
+              rowData={tableData}
+              columnDefs={columnDefs}
+              defaultColDef={defaultColDef}
+              onGridReady={onGridReady}
+            />
+          </div>
+          <FormDialog open={open} handleClose={handleClose}
+            data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit} />
+        </div>
+>>>>>>> Stashed changes
       </div>
-      <FormDialog open={open} handleClose={handleClose}
-        data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit} />
     </div>
+
   );
 }
 

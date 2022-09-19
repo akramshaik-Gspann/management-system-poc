@@ -74,6 +74,51 @@
   cursor: pointer;
 }
 
+<<<<<<< Updated upstream
 .user-logout:hover .overlay {
   opacity: 1;
+=======
+.ag-theme-alpine {
+  --ag-header-height: 30px;
+  --ag-border-color:black;
+  margin-top: 20px;
+  --ag-borders-row: dashed 5px;
+  /* --ag-row-border-color: rgb(150, 150, 200); */
+
+  --ag-header-foreground-color: white;
+  --ag-header-background-color: black;
+
+  text-align: center;
+    /* then add back a border between rows */
+    --ag-borders-row: dashed 1px;
+    /* --ag-row-border-color: black; */
+  
+}
+
+.ag-theme-alpine .ag-header {
+  font-family: 'Times New Roman', Times, serif;
+}
+.ag-theme-alpine .ag-header-group-cell {
+  font-weight: normal;
+  font-size: 22px;
+  --ag-borders-row: dashed 1px;
+}
+.ag-theme-alpine .ag-header-cell {
+  font-size: 14px;
+}
+
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid-wrapper {
+  flex: 1 1 0px;
+  width: 100%;
+}
+
+#myGrid {
+  height: 100%;
+>>>>>>> Stashed changes
 }
