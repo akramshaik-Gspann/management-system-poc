@@ -26,15 +26,17 @@
 
 .user-form label {
   color: #a3a3a3;
+  font-weight: 400;
 }
 .user-form button{
   background-color: #397EF6;
   color: #fff;
 }
+.user-form input{
+  color:#a3a3a3;
+  font-size: 13px;
+}
 .form-left img{
   height: 550px;
+  width: 100%;
 }
-/* .main-form{
-  width: 70%;
-  margin: auto;
-} */

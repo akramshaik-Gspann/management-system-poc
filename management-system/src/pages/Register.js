@@ -47,8 +47,8 @@ const Register = () => {
                         <div className='form-left grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0'>
                             <img src={formimg} />
                         </div>
-                        <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form className="w-full pb-24 pl-12 pr-12 user-form" onSubmit={handleSubmit}>
+                        <div className="xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                            <form className="w-full pl-12 pr-12 user-form" onSubmit={handleSubmit}>
                                 <h1 className='text-center text-4xl font-bold mb-3'>Sign Up</h1>
                                 <p className='text-center mb-3'><span>Already a member?</span> <Link to="/login" className='forlogin'>Login</Link></p>
                                 <div className="md:items-center mb-6">
@@ -61,7 +61,7 @@ const Register = () => {
                                         <input
                                             type="email"
                                             id="user-email"
-                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            className="form-control block w-full px-2 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             placeholder='Email Address'
                                             name='email'
                                             onChange={handleChange}
@@ -80,7 +80,7 @@ const Register = () => {
                                         <input
                                             type="password"
                                             id="inputPassword"
-                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            className="form-control block w-full px-2 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             placeholder='Password'
                                             name='password'
                                             onChange={handleChange}
@@ -99,7 +99,7 @@ const Register = () => {
                                         <input
                                             type="password"
                                             id="passwordConfirm"
-                                            className="form-control block w-full px-4 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            className="form-control block w-full px-2 py-2 text-s font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             placeholder='Repeat Password'
                                             name='passwordConfirm'
                                             onChange={handleChange}
@@ -109,9 +109,9 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div className="md:flex md:items-center lg:text-center">
-                                    <div className="m-auto">
-                                        <button type="submit" className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                            Create
+                                    <div className="m-auto w-100">
+                                        <button type="submit" className="w-100 inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                            Create an Account
                                         </button>
                                     </div>
                                 </div>
