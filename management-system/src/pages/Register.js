@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
-
+import formimg from '../Images/form.png';
 const Register = () => {
     const [state, setState] = useState({
         email: "",
@@ -44,6 +44,9 @@ const Register = () => {
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+                        <div className='xyz'>
+<img src={formimg}/>
+                        </div>
                         <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                             <form className="w-full pb-24 pl-12 pr-12" onSubmit={handleSubmit}>
                             <h5 className='text-center text-xl'>Sign Up</h5>

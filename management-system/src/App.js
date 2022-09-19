@@ -43,7 +43,6 @@ function App() {
             <Route exact path='/ag' element={<Ag />} />
           </Routes>
         </div>
-       
       </Router>
   );
 }
