@@ -6,3 +6,7 @@
 .user-form p span{
 color: #a3a3a3;
 }
+.user-form button{
+  background-color: #397EF6;
+  color: white;
+}

@@ -42,7 +42,7 @@ const Register = () => {
     return (
         <div className='container'>
 
-            <section className="h-screen">
+            <section className="">
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
                         <div className='form-left'>
@@ -112,7 +112,7 @@ const Register = () => {
                                 <div className="md:flex md:items-center lg:text-center">
                                     <div className="m-auto">
                                         <button type="submit" className="inline-block px-7 py-3 text-black font-medium text-sm leading-snug capitalise border border-solid border-gray-300 rounded shadow-md  hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                            Register
+                                            Create an Account
                                         </button>
                                     </div>
                                 </div>
