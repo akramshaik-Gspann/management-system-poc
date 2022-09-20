@@ -167,8 +167,16 @@ function Gridtable() {
               onClick={handleClickOpen}
             >
               Add Product
+            </Button>{" "}
+            &nbsp; &nbsp; &nbsp;
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleClickOpen}
+            >
+              Upload
             </Button>
-          </Grid>
+          </Grid>{" "}
           <Grid align="right">
             <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
               <option value="All">Filter by Catalog type</option>
