@@ -1,14 +1,184 @@
 {
   "users": [
     {
-      "catalogId": "ASD",
-      "catalogType": "wer",
-      "itemName": "shirt",
-      "priceNumber": "210000",
+      "catalogId": "BMR",
+      "catalogType": "Jeans",
+      "itemName": "Jam xd jean",
+      "priceNumber": "40",
+      "color": "Blue",
+      "Stock": "11",
+      "lastUpdated": "2022-05-14",
+      "id": "1"
+    },
+    {
+      "catalogId": "GMR",
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "38",
+      "color": "Pink",
+      "Stock": "18",
+      "lastUpdated": "2022-05-10",
+      "id": "2"
+    },
+    {
+      "catalogId": "RMR",
+      "catalogType": "Jumpers",
+      "itemName": "Miller Office",
+      "priceNumber": "59",
+      "color": "Black",
+      "Stock": "22",
+      "lastUpdated": "2022-05-16",
+      "id": "3"
+    },
+    {
+      "catalogId": "CMR",
+      "catalogType": "Shirts",
+      "itemName": "Jam xd jean",
+      "priceNumber": "56",
+      "color": "Maroo",
+      "Stock": "19",
+      "lastUpdated": "2022-05-11",
+      "id": "4"
+    },
+    {
+      "catalogId": "BMR",
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "49",
+      "color": "Indigo",
+      "Stock": "17",
+      "lastUpdated": "2022-05-19",
+      "id": "5"
+    },
+    {
+      "catalogId": "GMR",
+      "catalogType": "Jeans",
+      "itemName": "Miller Office",
+      "priceNumber": "50",
+      "color": "Grey",
+      "Stock": "15",
+      "lastUpdated": "2022-05-22",
+      "id": "6"
+    },
+    {
+      "catalogId": "RMR",
+      "catalogType": "Shirts",
+      "itemName": "Jam xd jean",
+      "priceNumber": "39",
+      "color": "White",
+      "Stock": "25",
+      "lastUpdated": "2022-05-09",
+      "id": "7"
+    },
+    {
+      "catalogId": "CMR",
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "48",
+      "color": "Green",
+      "Stock": "24",
+      "lastUpdated": "2022-05-07",
+      "id": "8"
+    },
+    {
+      "catalogId": "BMR",
+      "catalogType": "Jumpers",
+      "itemName": "Miller Office",
+      "priceNumber": "67",
       "color": "Red",
-      "Stock": "2",
-      "lastUpdated": "12-02-2020",
-      "id": 1
+      "Stock": "16",
+      "lastUpdated": "2022-05-06",
+      "id": "9"
+    },
+    {
+      "catalogId": "BMR",
+      "catalogType": "Jeans",
+      "itemName": "Jam xd jean",
+      "priceNumber": "40",
+      "color": "Blue",
+      "Stock": "11",
+      "lastUpdated": "2022-05-14",
+      "id": "10"
+    },
+    {
+      "catalogId": "GMR",
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "38",
+      "color": "Pink",
+      "Stock": "18",
+      "lastUpdated": "2022-05-10",
+      "id": "11"
+    },
+    {
+      "catalogId": "RMR",
+      "catalogType": "Jumpers",
+      "itemName": "Miller Office",
+      "priceNumber": "59",
+      "color": "Black",
+      "Stock": "22",
+      "lastUpdated": "2022-05-16",
+      "id": "12"
+    },
+    {
+      "catalogId": "CMR",
+      "catalogType": "Shirts",
+      "itemName": "Jam xd jean",
+      "priceNumber": "56",
+      "color": "Maroo",
+      "Stock": "19",
+      "lastUpdated": "2022-05-11",
+      "id": "13"
+    },
+    {
+      "catalogId": "BMR",
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "49",
+      "color": "Indigo",
+      "Stock": "17",
+      "lastUpdated": "2022-05-19",
+      "id": "14"
+    },
+    {
+      "catalogId": "GMR",
+      "catalogType": "Jeans",
+      "itemName": "Miller Office",
+      "priceNumber": "50",
+      "color": "Grey",
+      "Stock": "15",
+      "lastUpdated": "2022-05-22",
+      "id": "15"
+    },
+    {
+      "catalogId": "RMR",
+      "catalogType": "Shirts",
+      "itemName": "Jam xd jean",
+      "priceNumber": "39",
+      "color": "White",
+      "Stock": "25",
+      "lastUpdated": "2022-05-09",
+      "id": "16"
+    },
+    {
+      "catalogId": "CMR",
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "48",
+      "color": "Green",
+      "Stock": "24",
+      "lastUpdated": "2022-05-07",
+      "id": "17"
+    },
+    {
+      "catalogId": "BMR",
+      "catalogType": "Jumpers",
+      "itemName": "Miller Office",
+      "priceNumber": "67",
+      "color": "Red",
+      "Stock": "16",
+      "lastUpdated": "2022-05-06",
+      "id": "18"
     }
   ]
 }
