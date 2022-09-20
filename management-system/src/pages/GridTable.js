@@ -162,8 +162,8 @@ function Gridtable() {
         </Button>
       </Grid>
       <Grid align="right">
-        <Button variant="contained">Filter by Catalog type</Button>
         <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
+          <option value="All">Filter by Catalog type</option>
           <option value="All">All</option>
           <option value="Jeans">Jeans</option>
           <option value="Shirts">Shirts</option>
