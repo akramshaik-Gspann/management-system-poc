@@ -11,6 +11,8 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { Grid, Button } from "@material-ui/core";
 import FormDialog from "../Component/dialog";
+import CreateIcon from "@material-ui/icons/Create";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 const initialValue = {
   catalogId: "",
@@ -56,20 +58,9 @@ function Gridtable() {
       field: "id",
       cellRendererFramework: (params) => (
         <div>
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => handleUpdate(params.data)}
-          >
-            Edit
-          </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={() => handleDelete(params.value)}
-          >
-            Delete
-          </Button>
+          <CreateIcon onClick={() => handleUpdate(params.data)} />
+          &nbsp;&nbsp;
+          <DeleteOutlineIcon onClick={() => handleDelete(params.value)} />
         </div>
       ),
     },
@@ -181,7 +172,6 @@ function Gridtable() {
           <Grid align="right">
             <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
               <option value="All">Filter by Catalog type</option>
-              <option value="All">All</option>
               <option value="Jeans">Jeans</option>
               <option value="Shirts">Shirts</option>
               <option value="Trousers">Trousers</option>
