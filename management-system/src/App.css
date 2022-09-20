@@ -73,6 +73,9 @@
   color: #000 !important;
   cursor: pointer;
 }
+.user-logout:hover .overlay {
+  opacity: 1;
+}
 
 .ag-theme-alpine {
   --ag-header-height: 30px;
