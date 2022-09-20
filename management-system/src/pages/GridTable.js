@@ -1,4 +1,10 @@
-import React, { useCallback, useState, useEffect, useRef } from "react";
+import React, {
+  useCallback,
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import "../App.css";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
@@ -17,6 +23,11 @@ const initialValue = {
 };
 
 function Gridtable() {
+  const containerStyle = useMemo(
+    () => ({ width: "100%", height: "400px", padding: "50px" }),
+    []
+  );
+  const gridStyle = useMemo(() => ({ height: "400px", width: "100%" }), []);
   const [gridApi, setGridApi] = useState(useRef());
   const gridRef = useRef();
   const [tableData, setTableData] = useState(null);
@@ -156,38 +167,47 @@ function Gridtable() {
 
   return (
     <div className="App">
-      <Grid align="left">
-        <Button variant="contained" color="primary" onClick={handleClickOpen}>
-          Add Product
-        </Button>
-      </Grid>
-      <Grid align="right">
-        <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
-          <option value="All">Filter by Catalog type</option>
-          <option value="All">All</option>
-          <option value="Jeans">Jeans</option>
-          <option value="Shirts">Shirts</option>
-          <option value="Trousers">Trousers</option>
-          <option value="Jumpers">Jumpers</option>
-          Filter
-        </select>
-      </Grid>
-      <div className="ag-theme-alpine" style={{ height: "400px" }}>
-        <AgGridReact
-          ref={gridRef}
-          rowData={tableData}
-          columnDefs={columnDefs}
-          defaultColDef={defaultColDef}
-          onGridReady={onGridReady}
-        />
+      <div class="grid-wrapper">
+        <div className="ag-theme-alpine" style={containerStyle}>
+          <Grid align="left">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleClickOpen}
+            >
+              Add Product
+            </Button>
+          </Grid>
+          <Grid align="right">
+            <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
+              <option value="All">Filter by Catalog type</option>
+              <option value="All">All</option>
+              <option value="Jeans">Jeans</option>
+              <option value="Shirts">Shirts</option>
+              <option value="Trousers">Trousers</option>
+              <option value="Jumpers">Jumpers</option>
+            </select>
+          </Grid>
+          <div className="ag-theme-alpine">
+            <div id="myGrid" className="grid-wrapper" style={gridStyle}>
+              <AgGridReact
+                ref={gridRef}
+                rowData={tableData}
+                columnDefs={columnDefs}
+                defaultColDef={defaultColDef}
+                onGridReady={onGridReady}
+              />
+            </div>
+            <FormDialog
+              open={open}
+              handleClose={handleClose}
+              data={formData}
+              onChange={onChange}
+              handleFormSubmit={handleFormSubmit}
+            />
+          </div>
+        </div>
       </div>
-      <FormDialog
-        open={open}
-        handleClose={handleClose}
-        data={formData}
-        onChange={onChange}
-        handleFormSubmit={handleFormSubmit}
-      />
     </div>
   );
 }
