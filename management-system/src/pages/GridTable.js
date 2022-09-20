@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import { Grid, Button } from '@material-ui/core'
+import { Grid, Button } from '@material-ui/core';
 import FormDialog from '../Component/dialog';
-import CreateIcon from '@material-ui/icons/Create';
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import {Data} from '../Component/Uplod/Data';
+import * as XLSX from 'xlsx';
 
-const initialValue = { catalogId: "", catalogType: "", itemName: "", priceNumber: "", color: "", Stock: "", lastUpdated: "", }
+
+const initialValue = { catalogId: "", catalogType: "", itemName: "", priceNumber: "", color: "", Stock: "", lastUpdated: "",}
 function Gridtable() {
-  const containerStyle = useMemo(() => ({ width: '100%', height: '400px', padding: '50px' }), []);
-  const gridStyle = useMemo(() => ({ height: '400px', width: '100%' }), []);
+  const [gridData, setGridData] = useState([])
   const [gridApi, setGridApi] = useState(null)
   const [tableData, setTableData] = useState(null)
   const [open, setOpen] = React.useState(false);
@@ -36,12 +36,16 @@ function Gridtable() {
     { headerName: "Last Updated", field: "lastUpdated" },
     {
       headerName: "Actions", field: "id", cellRendererFramework: (params) => <div>
-        <CreateIcon onClick={() => handleUpdate(params.data)} />&nbsp;&nbsp;
-        <DeleteOutlineIcon onClick={() => handleDelete(params.value)} />
+        <Button variant="outlined" color="primary" onClick={() => handleUpdate(params.data)}>Edit</Button>
+        <Button variant="outlined" color="secondary" onClick={() => handleDelete(params.value)}>Delete</Button>
       </div>
     }
   ]
+  useEffect(() => {
   // calling getUsers function for first time 
+  setGridData(gridData)
+}, [gridData])
+
   useEffect(() => {
     getUsers()
   }, [])
@@ -98,39 +102,115 @@ function Gridtable() {
           getUsers()
         })
     }
+    }
+
+  const defaultColDef = {
+    sortable: true,
+    flex: 1, filter: true,
+    // floatingFilter: true
   }
 
-  const defaultColDef = useMemo(() => {
-    return {
-      resizable: true,
-      // sortable: true,
-      flex: 1,
-      // filter: true,
-      // floatingFilter: true
-    };
-  }, []);
-
-  return (
-    <div class="grid-wrapper">
-      <div className="ag-theme-alpine" style={containerStyle} >
-        <Grid align="left">
-          <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Product</Button>
-        </Grid>
-        <div className="ag-theme-alpine">
-          <div id="myGrid" className='grid-wrapper' style={gridStyle}>
-            <AgGridReact
-              rowData={tableData}
-              columnDefs={columnDefs}
-              defaultColDef={defaultColDef}
-              onGridReady={onGridReady}
-            />
-          </div>
-          <FormDialog open={open} handleClose={handleClose}
-            data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit} />
+  function ImportData() {
+  
+    const [excelFile, setExcelFile]=useState(null);
+    const [excelFileError, setExcelFileError]=useState(null);
+   
+    const [excelData, setExcelData]=useState(null);
+  
+    const fileType=['application/vnd.ms-excel'];
+    const handleFile = (e)=>{
+      let selectedFile = e.target.files[0];
+      if(selectedFile){
+  
+        if(selectedFile&&fileType.includes(selectedFile.type)){
+          let reader = new FileReader();
+          reader.readAsArrayBuffer(selectedFile);
+          reader.onload=(e)=>{
+            setExcelFileError(null);
+            setExcelFile(e.target.result);
+            const workbook = XLSX.read(e.target.result,{type:'buffer'});
+            const worksheetName = workbook.SheetNames[0];
+            const worksheet=workbook.Sheets[worksheetName];
+            const data = XLSX.utils.sheet_to_json(worksheet);
+            setExcelData(data);
+            alert("imported Succefully")
+          } 
+          
+        }
+        else{
+          setExcelFileError('Please select only excel file types');
+          setExcelFile(null);
+        }
+      }
+      else{
+        console.log('plz select your file');
+      }
+    }
+    
+    return (
+      <div className="container">
+  
+        <div className='form'>
+          <form className='form-group' autoComplete="off">
+            {/* <label><h5>Upload Excel file</h5></label> */}
+            <br></br>
+            <input type='file' className='form-control'
+            onChange={handleFile} required></input>                  
+            {excelFileError&&<div className='text-danger'
+            style={{marginTop:5+'px'}}>{excelFileError}</div>}
+            
+          </form>
         </div>
+  
+        <br></br>
+        {/* <hr></hr> */}
+  
+  
+        {/* <h5>View Excel file</h5> */}
+        <div className='viewer'>
+          {/* {excelData===null&&<>No file selected</>} */}
+          {excelData!==null&&(
+            <div className='table-responsive'>
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <th scope='col'>Name</th>
+                    <th scope='col'>Account</th>
+                    <th scope='col'>Call</th>
+                    <th scope='col'>Minutes</th>
+                    <th scope='col'>Child</th>
+                    {/* <th scope='col'>Age</th>
+                    <th scope='col'>Date</th>                   */}
+                  </tr>
+                </thead>
+                <tbody>
+                  <Data excelData={excelData}/>
+                </tbody>
+              </table>            
+            </div>
+          )}       
+        </div>
+  
       </div>
+    );
+  }
+  return (
+    <div className="App container">
+      <Grid align="left">
+        <ImportData />
+        <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Product</Button>
+      </Grid>
+      <div className="ag-theme-alpine" style={{ height: '400px' }}>
+        <AgGridReact
+          rowData={tableData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultColDef}
+          onGridReady={onGridReady}
+        />
+      </div>
+      <FormDialog open={open} handleClose={handleClose}
+        data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit} />
     </div>
-
   );
 }
 

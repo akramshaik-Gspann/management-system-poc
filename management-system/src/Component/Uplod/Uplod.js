@@ -20,7 +20,14 @@ function Uplode() {
         reader.onload=(e)=>{
           setExcelFileError(null);
           setExcelFile(e.target.result);
+          const workbook = XLSX.read(e.target.result,{type:'buffer'});
+          const worksheetName = workbook.SheetNames[0];
+          const worksheet=workbook.Sheets[worksheetName];
+          const data = XLSX.utils.sheet_to_json(worksheet);
+          setExcelData(data);
+          alert("imported Succefully")
         } 
+        
       }
       else{
         setExcelFileError('Please select only excel file types');
@@ -31,35 +38,19 @@ function Uplode() {
       console.log('plz select your file');
     }
   }
-
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    if(excelFile!==null){
-      const workbook = XLSX.read(excelFile,{type:'buffer'});
-      const worksheetName = workbook.SheetNames[0];
-      const worksheet=workbook.Sheets[worksheetName];
-      const data = XLSX.utils.sheet_to_json(worksheet);
-      setExcelData(data);
-    }
-    else{
-      setExcelData(null);
-    }
-  }
   
   return (
     <div className="container">
 
       <div className='form'>
-        <form className='form-group' autoComplete="off"
-        onSubmit={handleSubmit}>
+        <form className='form-group' autoComplete="off">
           <label><h5>Upload Excel file</h5></label>
           <br></br>
           <input type='file' className='form-control'
           onChange={handleFile} required></input>                  
           {excelFileError&&<div className='text-danger'
           style={{marginTop:5+'px'}}>{excelFileError}</div>}
-          <button type='submit' className='btn btn-success'
-          style={{marginTop:5+'px'}}>Submit</button>
+          
         </form>
       </div>
 
