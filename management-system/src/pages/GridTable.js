@@ -148,7 +148,7 @@ function Gridtable() {
     }
     
     return (
-      <div className="container">
+      <div className="container uplodedata">
   
         <div className='form'>
           <form className='form-group' autoComplete="off">

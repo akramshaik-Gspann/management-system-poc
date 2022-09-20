@@ -120,3 +120,8 @@
 #myGrid {
   height: 100%;
 }
+
+.uplodedata input[type=file]{
+border: none;
+width: 20%;
+}
