@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "catalogId": "BMR",
-      "catalogType": "Jeans",
-      "itemName": "Jam xd jean",
-      "priceNumber": "40",
-      "color": "Blue",
-      "Stock": "11",
-      "lastUpdated": "2022-05-14",
-      "id": "1"
-    },
-    {
       "catalogId": "GMR",
       "catalogType": "Trousers",
       "itemName": "Miller casual",
