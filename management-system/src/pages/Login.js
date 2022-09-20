@@ -6,7 +6,7 @@ import { loginInitiate } from '../redux/actions';
 import { logoutInitiate } from '../redux/actions';
 import formimg from '../Images/form.png';
 
-const Login = ({ cabinData }) => {
+const Login = ({ }) => {
     const [state, setState] = useState({
         email: "",
         password: "",
