@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "catalogId": "qwe",
-      "catalogType": "shirt",
-      "itemName": "Shirts",
-      "priceNumber": "234",
-      "color": "red",
-      "Stock": "20",
-      "lastUpdated": "22/22/22",
-      "id": "mm3Er2j"
+      "catalogId": "ASD",
+      "catalogType": "wer",
+      "itemName": "shirt",
+      "priceNumber": "210000",
+      "color": "Red",
+      "Stock": "2",
+      "lastUpdated": "12-02-2020",
+      "id": 1
     }
   ]
 }

@@ -111,19 +111,6 @@ function Gridtable() {
   }, []);
 
   return (
-<<<<<<< Updated upstream
-    <div className="App">
-      <Grid align="left">
-        <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Product</Button>
-      </Grid>
-      <div className="ag-theme-alpine" style={{ height: '400px' }}>
-        <AgGridReact
-          rowData={tableData}
-          columnDefs={columnDefs}
-          defaultColDef={defaultColDef}
-          onGridReady={onGridReady}
-        />
-=======
     <div class="grid-wrapper">
       <div className="ag-theme-alpine" style={containerStyle} >
         <Grid align="left">
@@ -141,7 +128,6 @@ function Gridtable() {
           <FormDialog open={open} handleClose={handleClose}
             data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit} />
         </div>
->>>>>>> Stashed changes
       </div>
     </div>
 
