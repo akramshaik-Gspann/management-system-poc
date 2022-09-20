@@ -85,8 +85,8 @@
   --ag-borders-row        : dashed 5px;
   /* --ag-row-border-color: rgb(150, 150, 200); */
 
-  --ag-header-foreground-color: white;
-  --ag-header-background-color: black;
+  --ag-header-foreground-color: black;
+  --ag-header-background-color: #F0F0F0;
 
   text-align              : center;
   /* then add back a border between rows */
@@ -96,7 +96,7 @@
 }
 
 .ag-theme-alpine .ag-header {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: arial, sans-serif;
 }
 
 .ag-theme-alpine .ag-header-group-cell {
