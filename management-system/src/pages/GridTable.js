@@ -205,6 +205,34 @@ function Gridtable() {
             />
           </div>
         </div>
+
+        <br></br>
+        {/* <hr></hr> */}
+
+        {/* <h5>View Excel file</h5> */}
+        <div className="viewer">
+          {/* {excelData===null&&<>No file selected</>} */}
+          {excelData !== null && (
+            <div className="table-responsive">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Account</th>
+                    <th scope="col">Call</th>
+                    <th scope="col">Minutes</th>
+                    <th scope="col">Child</th>
+                    {/* <th scope='col'>Age</th>
+                    <th scope='col'>Date</th>                   */}
+                  </tr>
+                </thead>
+                <tbody>
+                  <Data excelData={excelData} />
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
