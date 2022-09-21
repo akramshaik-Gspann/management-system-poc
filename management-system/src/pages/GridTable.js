@@ -62,11 +62,7 @@ function Gridtable() {
             className="edit"
             onClick={() => handleUpdate(params.data)}
           />
-          &nbsp;&nbsp;
-          <DeleteOutlineIcon
-            className="delete"
-            onClick={() => handleDelete(params.value)}
-          />
+          {/* <DeleteOutlineIcon className='delete' onClick={() => handleDelete(params.value)} /> */}
         </div>
       ),
     },
@@ -127,11 +123,6 @@ function Gridtable() {
           .then((resp) => {
             handleClose();
             getUsers();
-          })
-          .then((resp) => resp.json())
-          .then((resp) => {
-            handleClose();
-            getUsers();
           });
     } else {
       // adding new user
@@ -150,11 +141,14 @@ function Gridtable() {
     }
   };
   const defaultColDef = {
-    sortable: true,
+    // sortable: true,
     flex: 1,
-    // filter: true,
-    // floatingFilter: true
+    onFirstDataRendered: onFirstDataRendered,
   };
+
+  function onFirstDataRendered(params) {
+    params.data.sizeColumnsToFit();
+  }
 
   //Filter by Catalog Type - Starts
   const onFilterTextBoxChanged = useCallback((event) => {
@@ -186,7 +180,14 @@ function Gridtable() {
             const worksheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[worksheetName];
             const data = XLSX.utils.sheet_to_json(worksheet);
-            setExcelData(data);
+            if (tableData.length != 0) {
+              let mergeddata = [...data, ...tableData];
+              setTableData(mergeddata);
+            } else {
+              setTableData(data);
+            }
+
+            console.log([data]);
             alert("imported Succefully");
           };
         } else {
@@ -198,50 +199,21 @@ function Gridtable() {
       }
     };
     return (
-      <div className="container uplodedata">
-        <div className="form">
-          <form className="form-group" autoComplete="off">
-            {/* <label><h5>Upload Excel file</h5></label> */}
-            <br></br>
-            <input
-              type="file"
-              className="form-control"
-              onChange={handleFile}
-              required
-            ></input>
-            {excelFileError && (
-              <div className="text-danger" style={{ marginTop: 5 + "px" }}>
-                {excelFileError}
-              </div>
-            )}
-          </form>
-        </div>
-        <br></br>
-        {/* <hr></hr> */}
-        {/* <h5>View Excel file</h5> */}
-        <div className="viewer">
-          {/* {excelData===null&&<>No file selected</>} */}
-          {excelData !== null && (
-            <div className="table-responsive">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Account</th>
-                    <th scope="col">Call</th>
-                    <th scope="col">Minutes</th>
-                    <th scope="col">Child</th>
-                    {/* <th scope='col'>Age</th>
-                    <th scope='col'>Date</th>                   */}
-                  </tr>
-                </thead>
-                <tbody>
-                  <Data excelData={excelData} />
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
+      <div>
+        {/* <label for="fileupload">Select a file to upload </label> */}
+        <input
+          id="fileupload"
+          type="file"
+          className=""
+          onChange={handleFile}
+          required
+        ></input>
+
+        {excelFileError && (
+          <div className="text-danger" style={{ marginTop: 5 + "px" }}>
+            {excelFileError}
+          </div>
+        )}
       </div>
     );
   }
@@ -249,14 +221,15 @@ function Gridtable() {
   return (
     <div className="App container">
       <Grid align="left" className="grid-table">
-        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        <button
+          className="px-4 py-2 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          onClick={handleClickOpen}
+        >
           Add Product
-        </Button>
+        </button>
         <ImportData />
-      </Grid>
-      <Grid align="right">
         <select
-          className="filter_dropdown"
+          className="filter-dropdown"
           id="filter-text-box"
           onChange={onFilterTextBoxChanged}
         >
@@ -267,6 +240,7 @@ function Gridtable() {
           <option value="Jumpers">Jumpers</option>
         </select>
       </Grid>
+
       <div className="ag-theme-alpine" style={{ height: "400px" }}>
         <AgGridReact
           ref={gridRef}
@@ -276,6 +250,13 @@ function Gridtable() {
           onGridReady={onGridReady}
         />
       </div>
+      <FormDialog
+        open={open}
+        handleClose={handleClose}
+        data={formData}
+        onChange={onChange}
+        handleFormSubmit={handleFormSubmit}
+      />
     </div>
   );
 }

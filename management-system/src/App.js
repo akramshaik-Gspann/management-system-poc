@@ -11,6 +11,7 @@ import store from './redux/store';
 import Gridtable from './pages/GridTable';
 import Uplod from './Component/Uplod/Uplod';
 import Ag from './Component/Uplod/Ag';
+import Footer from './pages/Footer';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route exact path='/ag' element={<Ag />} />
           </Routes>
         </div>
+        <Footer/>
       </Router>
   );
 }
