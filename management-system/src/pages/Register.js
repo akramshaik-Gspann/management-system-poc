@@ -84,6 +84,7 @@ const Register = () => {
                                         <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-password">
                                             Password:
                                         </label>
+                                        {/* <p className="errorMsg">{passwordError?"Emailaddress already in use":""}</p> */}
                                     </div>
                                     <div className="md:w-100">
                                         <input

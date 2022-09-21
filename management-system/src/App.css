@@ -10,6 +10,15 @@ font-weight: 100 !important;
   display: none;
 
 }
+.grid-table {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  padding-top:20px;
+}
 
 nav{
   background-color: #397EF6;
