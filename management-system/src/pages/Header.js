@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutInitiate } from '../redux/actions';
 import { useNavigate } from "react-router-dom";
 import { setUser } from '../redux/actions';
-// import avtar from "../Images/img_avatar.png";
+import ims from "../Images/ims.png";
 
 function Header({ profile, setProfile }) {
     
@@ -32,7 +32,8 @@ function Header({ profile, setProfile }) {
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
                             <Link to="/">
-                                <h2 className="text-2xl font-bold">PMS</h2>
+                                {/* <h2 className="text-2xl font-bold hover:text-white">Inventory Management</h2> */}
+                            <img className='w-28' src={ims} alt="logo"/>
                             </Link>
                             <div className="md:hidden">
                                 <button

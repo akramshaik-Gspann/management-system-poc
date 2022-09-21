@@ -11,6 +11,12 @@ const Register = () => {
         passwordConfirm: ""
     });
 
+    const [error, setError] = useState({
+        email: '',
+        password: '',
+        passwordConfirm: ''
+    })
+
     const { currentUser } = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
@@ -36,11 +42,52 @@ const Register = () => {
 
     const handleChange = (e) => {
         let { name, value } = e.target;
-        setState({ ...state, [name]: value });
+        // setState({ ...state, [name]: value });
+        setState(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        validateInput(e);
     }
 
+    const validateInput = e => {
+        let { name, value } = e.target;
+        setError(prev => {
+            const stateObj = { ...prev, [name]: "" };
 
-    
+            switch (name) {
+                case "email":
+                    if (!value) {
+                        stateObj[name] = "Please enter email.";
+                    }
+                    break;
+
+                case "password":
+                    if (!value) {
+                        stateObj[name] = "Please enter password.";
+                    } else if (state.confirmPassword && value !== state.confirmPassword) {
+                        stateObj["passwordConfirm"] = "Password and Confirm Password does not match.";
+                    } else {
+                        stateObj["passwordConfirm"] = state.passwordConfirm ? "" : error.passwordConfirm;
+                    }
+                    break;
+
+                case "passwordConfirm":
+                    if (!value) {
+                        stateObj[name] = "Please enter confirm password.";
+                    } else if (state.password && value !== state.password) {
+                        stateObj[name] = "Password and Confirm password does not match.";
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            return stateObj;
+        });
+    }
+
     return (
         <div className='container'>
             <section className="main-form">
@@ -68,8 +115,9 @@ const Register = () => {
                                             name='email'
                                             onChange={handleChange}
                                             value={email}
-                                            required
+                                            onBlur={validateInput}
                                         />
+                                        {error.email && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{error.email}</span>}
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -87,8 +135,9 @@ const Register = () => {
                                             name='password'
                                             onChange={handleChange}
                                             value={password}
-                                            required
+                                            onBlur={validateInput}
                                         />
+                                        {error.password && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{error.password}</span>}
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -106,8 +155,9 @@ const Register = () => {
                                             name='passwordConfirm'
                                             onChange={handleChange}
                                             value={passwordConfirm}
-                                            required
+                                            onBlur={validateInput}
                                         />
+                                        {error.passwordConfirm && <span className='err bg-red-100 border border-red-400 text-s text-red-700 inline-block mt-1 px-4 py-2 rounded'>{error.passwordConfirm}</span>}
                                     </div>
                                 </div>
                                 <div className="md:flex md:items-center lg:text-center">

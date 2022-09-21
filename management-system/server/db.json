@@ -169,6 +169,22 @@
       "Stock": "16",
       "lastUpdated": "2022-05-06",
       "id": "18"
+    },
+    {
+      "catalogId": "Bash123",
+      "catalogType": 123456,
+      "itemName": 1,
+      "priceNumber": 25.65,
+      "color": "N/A",
+      "id": "WSkWG_a"
+    },
+    {
+      "catalogId": "Bash",
+      "catalogType": 123456,
+      "itemName": 1,
+      "priceNumber": 25.65,
+      "color": "N/A",
+      "id": "DWtMxnC"
     }
   ]
 }
