@@ -31,9 +31,9 @@ function Header({ profile, setProfile }) {
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                            <Link to="/">
+                            <div>
                                 <img className='w-28' src={ims} alt="logo"/>
-                            </Link>
+                            </div>
                             <div className="md:hidden">
                                 <button
                                     className="p-2 text-white-700 rounded-md outline-none"
