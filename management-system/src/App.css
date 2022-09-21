@@ -1,15 +1,17 @@
-*{
+* {
   -ms-overflow-style: none;
 }
 
-.errorMsg{
-color: red !important;
-font-weight: 100 !important;
+.errorMsg {
+  color: red !important;
+  font-weight: 100 !important;
 }
+
 ::-webkit-scrollbar {
   display: none;
 
 }
+
 .grid-table {
 
   display: flex;
@@ -17,12 +19,13 @@ font-weight: 100 !important;
   align-items: center;
   flex-direction: row;
   align-content: center;
-  padding-top:20px;
+  padding-top: 20px;
 }
 
-nav{
+nav {
   background-color: #397EF6;
 }
+
 .head {
   color: #ffff;
 }
@@ -146,14 +149,23 @@ button {
   width: 20%;
 }
 
-.edit{
+.edit {
   cursor: pointer;
   color: #397EF6;
 }
-.delete{
+
+.delete {
   cursor: pointer;
   color: red;
 }
-.grid-table{
+
+.grid-table {
   display: flex;
+}
+
+.filter-dropdown {
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 2px 5px;
 }

@@ -150,13 +150,18 @@ function Gridtable() {
     params.data.sizeColumnsToFit();
   }
 
-  //Filter by Catalog Type - Starts
-  const onFilterTextBoxChanged = useCallback(() => {
+//Filter by Catalog Type - Starts
+const onFilterTextBoxChanged = useCallback((event) => {
+  if (event.target.value === "All") {
+    gridRef.current.api.setQuickFilter();
+  } else {
     gridRef.current.api.setQuickFilter(
       document.getElementById("filter-text-box").value
     );
-    console.log(gridRef, "gridRef");
-  }, []);
+  }
+}, []);
+//Filter by Catalog Type - Ends
+
   function ImportData() {
     const [excelFile, setExcelFile] = useState(null);
     const [excelFileError, setExcelFileError] = useState(null);
@@ -220,7 +225,7 @@ function Gridtable() {
           Add Product
         </button>
         <ImportData />
-        <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
+        <select className="filter-dropdown" id="filter-text-box" onChange={onFilterTextBoxChanged}>
           <option value="All">Filter by Catalog type</option>
           <option value="Jeans">Jeans</option>
           <option value="Shirts">Shirts</option>

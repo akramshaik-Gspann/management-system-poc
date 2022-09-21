@@ -40,8 +40,6 @@ const Register = () => {
         }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
-       
-        
         dispatch(registerFail(error.message))
         navigate('/login');
         // navigate('/register');
@@ -128,7 +126,6 @@ const Register = () => {
                                             name='email'
                                             onChange={handleChange}
                                             value={email}
-                                            required
                                             onBlur={validateInput}
                                         />
                                         {err.email && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.email}</span>}
@@ -150,7 +147,6 @@ const Register = () => {
                                             name='password'
                                             onChange={handleChange}
                                             value={password}
-                                            required
                                             onBlur={validateInput}
                                         /> 
                                         {err.password && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.password}</span>}                                    
@@ -171,7 +167,6 @@ const Register = () => {
                                             name='passwordConfirm'
                                             onChange={handleChange}
                                             value={passwordConfirm}
-                                            required
                                             onBlur={validateInput}
                                         />
                                         {err.passwordConfirm && <span className='err bg-red-100 border border-red-400 text-s text-red-700 inline-block mt-1 px-4 py-2 rounded'>{err.passwordConfirm}</span>}
