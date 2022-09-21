@@ -1,6 +1,16 @@
 {
   "users": [
     {
+      "catalogId": "TMR",
+      "catalogType": "Shirts",
+      "itemName": "Miller Office",
+      "priceNumber": "47",
+      "color": "Red",
+      "Stock": "28",
+      "lastUpdated": "2022-05-15",
+      "id": "1"
+    },
+    {
       "catalogId": "GMR",
       "catalogType": "Trousers",
       "itemName": "Miller casual",

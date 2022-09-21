@@ -150,19 +150,23 @@ function Gridtable() {
     }
   };
   const defaultColDef = {
-    // sortable: true,
+    sortable: true,
     flex: 1,
     // filter: true,
     // floatingFilter: true
   };
+
   //Filter by Catalog Type - Starts
-  const onFilterTextBoxChanged = useCallback(() => {
-    gridRef.current.api.setQuickFilter(
-      document.getElementById("filter-text-box").value
-    );
-    console.log(gridRef, "gridRef");
+  const onFilterTextBoxChanged = useCallback((event) => {
+    if (event.target.value === "All") {
+      gridRef.current.api.setQuickFilter();
+    } else {
+      gridRef.current.api.setQuickFilter(
+        document.getElementById("filter-text-box").value
+      );
+    }
   }, []);
-  console.log(gridRef, "gridRef");
+  //Filter by Catalog Type - Ends
 
   function ImportData() {
     const [excelFile, setExcelFile] = useState(null);
@@ -242,8 +246,6 @@ function Gridtable() {
     );
   }
 
-  //Filter by Catalog Type - Ends
-
   return (
     <div className="App container">
       <Grid align="left" className="grid-table">
@@ -253,7 +255,11 @@ function Gridtable() {
         <ImportData />
       </Grid>
       <Grid align="right">
-        <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
+        <select
+          className="filter_dropdown"
+          id="filter-text-box"
+          onChange={onFilterTextBoxChanged}
+        >
           <option value="All">Filter by Catalog type</option>
           <option value="Jeans">Jeans</option>
           <option value="Shirts">Shirts</option>
