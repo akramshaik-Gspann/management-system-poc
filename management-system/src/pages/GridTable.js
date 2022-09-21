@@ -138,7 +138,8 @@ function Gridtable() {
             const worksheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[worksheetName];
             const data = XLSX.utils.sheet_to_json(worksheet);
-            setExcelData(data);
+            setTableData(data);
+            console.log([data]);
             alert("imported Succefully")
           }
         }
@@ -168,7 +169,7 @@ function Gridtable() {
         {/* <h5>View Excel file</h5> */}
         <div className='viewer'>
           {/* {excelData===null&&<>No file selected</>} */}
-          {excelData !== null && (
+          {/* {excelData !== null && (
             <div className='table-responsive'>
               <table className='table'>
                 <thead>
@@ -178,8 +179,6 @@ function Gridtable() {
                     <th scope='col'>Call</th>
                     <th scope='col'>Minutes</th>
                     <th scope='col'>Child</th>
-                    {/* <th scope='col'>Age</th>
-                    <th scope='col'>Date</th>                   */}
                   </tr>
                 </thead>
                 <tbody>
@@ -187,7 +186,7 @@ function Gridtable() {
                 </tbody>
               </table>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     );
