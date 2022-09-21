@@ -1,11 +1,15 @@
-/* *{
+*{
   -ms-overflow-style: none;
 }
 
 ::-webkit-scrollbar {
   display: none;
 
-} */
+}
+
+nav{
+  background-color: #397EF6;
+}
 .head {
   color: #ffff;
 }
@@ -58,7 +62,7 @@
 
 .overlay {
   position: absolute;
-  left: 2px;
+  right: 2px;
   top: 20px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
