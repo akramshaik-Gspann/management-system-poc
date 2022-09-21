@@ -222,7 +222,7 @@ const onFilterTextBoxChanged = useCallback((event) => {
     <div className="App container">
       <Grid align="left" className="grid-table">
         <button className="px-4 py-2 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={handleClickOpen}>
-          Add Product
+          Add New
         </button>
         <ImportData />
         <select className="filter-dropdown" id="filter-text-box" onChange={onFilterTextBoxChanged}>
