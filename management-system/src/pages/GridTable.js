@@ -175,7 +175,14 @@ function Gridtable() {
             const worksheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[worksheetName];
             const data = XLSX.utils.sheet_to_json(worksheet);
-            setTableData(data);
+            if(tableData.length!=0){
+              let mergeddata =[...data, ...tableData];
+              setTableData(mergeddata);
+            }
+            else{
+              setTableData(data);
+            }
+           
             console.log([data]);
             alert("imported Succefully");
           };
