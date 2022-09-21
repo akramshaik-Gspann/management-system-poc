@@ -8,25 +8,26 @@ import { setUser } from '../redux/actions';
 // import avtar from "../Images/img_avatar.png";
 
 function Header({ profile, setProfile }) {
-
+    
     const { currentUser } = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [navbar, setNavbar] = useState(false);
+
     const handleAuth = () => {
         if (currentUser) {
             dispatch(logoutInitiate());
             dispatch(setUser(null));
             setProfile();
             console.log("Profile After Logout", profile);
-            
+
         }
         navigate('/login');
-        
+
     }
     return (
         <>
-            <nav className="w-full bg-sky-600 shadow head">
+            <nav className="w-full shadow head">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -35,7 +36,7 @@ function Header({ profile, setProfile }) {
                             </Link>
                             <div className="md:hidden">
                                 <button
-                                    className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                                    className="p-2 text-white-700 rounded-md outline-none"
                                     onClick={() => setNavbar(!navbar)}
                                 >
                                     {navbar ? (
@@ -81,12 +82,20 @@ function Header({ profile, setProfile }) {
                                     {profile && profile._delegate.email ? (<div className='user-logout'>
                                         <Link className='overlay' to="/login" onClick={handleAuth}></Link></div>) : (<Link to="/register">Register</Link>)}
                                 </li>
-                                <li className="block text-gray-600 hover:text-blue-600">
-                                    {profile && profile._delegate.email ? (<div  onClick={handleAuth} className='user-logout'>
+                                <li className="items-center block text-gray-600 hover:text-blue-600">
+                                
+                                        <>
+                                        
+                                        {profile && profile._delegate.email ? (<div onClick={handleAuth} className='items-center user-logout flex'>
+                                            <span className='text-white pr-3 capitalize font-bold'>
+                                        {profile.email.slice(0, 4)}
+                                        </span>
                                         <div class="overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
                                             <svg class="image absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                                         </div>
                                         <Link to="/login" className='overlay'>Logout</Link></div>) : (<Link to="/login">Login</Link>)}
+                                        </>
+                                    
                                 </li>
 
                             </ul>

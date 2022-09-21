@@ -39,17 +39,19 @@ const Register = () => {
         setState({ ...state, [name]: value });
     }
 
+
+    
     return (
         <div className='container'>
             <section className="main-form">
-                <div className="px-6 h-full text-gray-800">
-                    <div className="flex xl:justify-center h-screen lg:justify-between justify-center items-center flex-wrap h-full g-6">
+                <div className="px-0 sm:px-6 h-screen text-gray-800">
+                    <div className="flex-none sm:flex xl:justify-center h-screen lg:justify-between justify-center items-center flex-wrap h-full g-6">
                         <div className='form-left hidden lg:block grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0'>
                             <img src={formimg} />
                         </div>
-                        <div className="xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form className="w-full pl-12 pr-12 user-form" onSubmit={handleSubmit}>
-                                <h1 className='text-center text-4xl font-bold mb-3'>Sign Up</h1>
+                        <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+                            <form className="w-full px-4 py-6 sm:px-12 md:px-12 lg:px-12 user-form" onSubmit={handleSubmit}>
+                                <h1 className='text-center text-2xl sm:text-4xl font-bold mb-3'>Sign Up</h1>
                                 <p className='text-center mb-3'><span>Already a member?</span> <Link to="/login" className='forlogin'>Login</Link></p>
                                 <div className="md:items-center mb-6">
                                     <div className="md:w-100">
