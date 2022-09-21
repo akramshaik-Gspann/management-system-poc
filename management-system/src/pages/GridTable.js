@@ -175,7 +175,14 @@ function Gridtable() {
             const worksheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[worksheetName];
             const data = XLSX.utils.sheet_to_json(worksheet);
-            setTableData(data);
+            if(tableData.length!=0){
+              let mergeddata =[...data, ...tableData];
+              setTableData(mergeddata);
+            }
+            else{
+              setTableData(data);
+            }
+           
             console.log([data]);
             alert("imported Succefully");
           };
@@ -188,48 +195,21 @@ function Gridtable() {
       }
     };
     return (
-      <div className="container uplodedata">
-        <div className="form">
-          <form className="form-group" autoComplete="off">
-            {/* <label><h5>Upload Excel file</h5></label> */}
-            <br></br>
-            <input
-              type="file"
-              className="form-control"
-              onChange={handleFile}
-              required
-            ></input>
-            {excelFileError && (
-              <div className="text-danger" style={{ marginTop: 5 + "px" }}>
-                {excelFileError}
-              </div>
-            )}
-          </form>
-        </div>
-        <br></br>
-        {/* <hr></hr> */}
-        {/* <h5>View Excel file</h5> */}
-        <div className="viewer">
-          {/* {excelData===null&&<>No file selected</>} */}
-          {/* {excelData !== null && (
-            <div className='table-responsive'>
-              <table className='table'>
-                <thead>
-                  <tr>
-                    <th scope='col'>Name</th>
-                    <th scope='col'>Account</th>
-                    <th scope='col'>Call</th>
-                    <th scope='col'>Minutes</th>
-                    <th scope='col'>Child</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <Data excelData={excelData} />
-                </tbody>
-              </table>
+      <div>
+        {/* <label for="fileupload">Select a file to upload </label> */}
+          <input
+           id="fileupload"
+            type="file"
+            className=""
+            onChange={handleFile}
+            required
+          ></input>
+         
+          {excelFileError && (
+            <div className="text-danger" style={{ marginTop: 5 + "px" }}>
+              {excelFileError}
             </div>
-          )} */}
-        </div>
+          )}
       </div>
     );
   }
@@ -240,8 +220,6 @@ function Gridtable() {
           Add Product
         </Button>
         <ImportData />
-      </Grid>
-      <Grid align="right">
         <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
           <option value="All">Filter by Catalog type</option>
           <option value="Jeans">Jeans</option>
@@ -250,6 +228,7 @@ function Gridtable() {
           <option value="Jumpers">Jumpers</option>
         </select>
       </Grid>
+     
       <div className="ag-theme-alpine" style={{ height: "400px" }}>
         <AgGridReact
           ref={gridRef}

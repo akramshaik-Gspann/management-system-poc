@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "catalogId": "GMR",
-      "catalogType": "Trousers",
-      "itemName": "Miller casual",
-      "priceNumber": "38",
-      "color": "Pink",
-      "Stock": "18",
-      "lastUpdated": "2022-05-10",
-      "id": "2"
-    },
-    {
       "catalogId": "RMR",
       "catalogType": "Jumpers",
       "itemName": "Miller Office",
@@ -171,20 +161,12 @@
       "id": "18"
     },
     {
-      "catalogId": "Bash123",
-      "catalogType": 123456,
-      "itemName": 1,
-      "priceNumber": 25.65,
-      "color": "N/A",
-      "id": "WSkWG_a"
-    },
-    {
-      "catalogId": "Bash",
-      "catalogType": 123456,
-      "itemName": 1,
-      "priceNumber": 25.65,
-      "color": "N/A",
-      "id": "DWtMxnC"
+      "catalogId": "Sril",
+      "catalogType": 456789,
+      "itemName": 5,
+      "priceNumber": 24.4,
+      "color": "N",
+      "id": "aLbNGao"
     }
   ]
 }

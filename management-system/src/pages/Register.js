@@ -8,16 +8,11 @@ const Register = () => {
     const [state, setState] = useState({
         email: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
+        error:""
     });
 
-    const [error, setError] = useState({
-        email: '',
-        password: '',
-        passwordConfirm: ''
-    })
-
-    const { currentUser } = useSelector((state) => state.user);
+    const { currentUser,registerFail,error } = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
     useEffect(() => {
@@ -32,62 +27,25 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password !== passwordConfirm) {
+        if (state.user !== currentUser && password !== passwordConfirm ) {
             return;
         }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
+       
+        
+        dispatch(registerFail(error.message))
         navigate('/login');
+        // navigate('/register');
     };
 
     const handleChange = (e) => {
         let { name, value } = e.target;
-        // setState({ ...state, [name]: value });
-        setState(prev => ({
-            ...prev,
-            [name]: value
-        }));
-        validateInput(e);
+        setState({ ...state, [name]: value });
     }
 
-    const validateInput = e => {
-        let { name, value } = e.target;
-        setError(prev => {
-            const stateObj = { ...prev, [name]: "" };
 
-            switch (name) {
-                case "email":
-                    if (!value) {
-                        stateObj[name] = "Please enter email.";
-                    }
-                    break;
-
-                case "password":
-                    if (!value) {
-                        stateObj[name] = "Please enter password.";
-                    } else if (state.confirmPassword && value !== state.confirmPassword) {
-                        stateObj["passwordConfirm"] = "Password and Confirm Password does not match.";
-                    } else {
-                        stateObj["passwordConfirm"] = state.passwordConfirm ? "" : error.passwordConfirm;
-                    }
-                    break;
-
-                case "passwordConfirm":
-                    if (!value) {
-                        stateObj[name] = "Please enter confirm password.";
-                    } else if (state.password && value !== state.password) {
-                        stateObj[name] = "Password and Confirm password does not match.";
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-
-            return stateObj;
-        });
-    }
-
+    
     return (
         <div className='container'>
             <section className="main-form">
@@ -105,6 +63,7 @@ const Register = () => {
                                         <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
+                                        
                                     </div>
                                     <div className="md:w-100">
                                         <input
@@ -115,9 +74,9 @@ const Register = () => {
                                             name='email'
                                             onChange={handleChange}
                                             value={email}
-                                            onBlur={validateInput}
+                                            required
                                         />
-                                        {error.email && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{error.email}</span>}
+                                        <p className="errorMsg">{error?"Emailaddress already in use":""}</p>
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -125,6 +84,7 @@ const Register = () => {
                                         <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-password">
                                             Password:
                                         </label>
+                                        {/* <p className="errorMsg">{passwordError?"Emailaddress already in use":""}</p> */}
                                     </div>
                                     <div className="md:w-100">
                                         <input
@@ -135,9 +95,8 @@ const Register = () => {
                                             name='password'
                                             onChange={handleChange}
                                             value={password}
-                                            onBlur={validateInput}
-                                        />
-                                        {error.password && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{error.password}</span>}
+                                            required
+                                        />                                     
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -155,9 +114,8 @@ const Register = () => {
                                             name='passwordConfirm'
                                             onChange={handleChange}
                                             value={passwordConfirm}
-                                            onBlur={validateInput}
+                                            required
                                         />
-                                        {error.passwordConfirm && <span className='err bg-red-100 border border-red-400 text-s text-red-700 inline-block mt-1 px-4 py-2 rounded'>{error.passwordConfirm}</span>}
                                     </div>
                                 </div>
                                 <div className="md:flex md:items-center lg:text-center">
