@@ -192,7 +192,7 @@ function Gridtable() {
         <div className="form">
           <form className="form-group" autoComplete="off">
             {/* <label><h5>Upload Excel file</h5></label> */}
-
+            <br></br>
             <input
               type="file"
               className="form-control"
@@ -206,6 +206,7 @@ function Gridtable() {
             )}
           </form>
         </div>
+        <br></br>
         {/* <hr></hr> */}
         {/* <h5>View Excel file</h5> */}
         <div className="viewer">
@@ -234,16 +235,13 @@ function Gridtable() {
   }
   return (
     <div className="App container">
-      <Grid align="left" className="grid-table flex justify-between block mt-3 border border-solid-grey-600 py-4 px-3">
-        <div>
-          <button className="px-4 py-3 text-white text-xs uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={handleClickOpen}>Add Product</button>
-        </div>
-        <div>
+      <Grid align="left" className="grid-table">
+        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+          Add Product
+        </Button>
         <ImportData />
-        </div>
-        
-        <div>
-        <Grid align="right" className="justify-end">
+      </Grid>
+      <Grid align="right">
         <select id="filter-text-box" onChange={onFilterTextBoxChanged}>
           <option value="All">Filter by Catalog type</option>
           <option value="Jeans">Jeans</option>
@@ -252,10 +250,6 @@ function Gridtable() {
           <option value="Jumpers">Jumpers</option>
         </select>
       </Grid>
-        </div>
-        
-      </Grid>
-      
       <div className="ag-theme-alpine" style={{ height: "400px" }}>
         <AgGridReact
           ref={gridRef}
