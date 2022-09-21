@@ -2,6 +2,10 @@
   -ms-overflow-style: none;
 }
 
+.errorMsg{
+color: red !important;
+font-weight: 100 !important;
+}
 ::-webkit-scrollbar {
   display: none;
 

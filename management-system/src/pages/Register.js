@@ -8,10 +8,11 @@ const Register = () => {
     const [state, setState] = useState({
         email: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
+        error:""
     });
 
-    const { currentUser } = useSelector((state) => state.user);
+    const { currentUser,registerFail,error } = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
     useEffect(() => {
@@ -26,12 +27,16 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password !== passwordConfirm) {
+        if (state.user !== currentUser && password !== passwordConfirm ) {
             return;
         }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
+       
+        
+        dispatch(registerFail(error.message))
         navigate('/login');
+        // navigate('/register');
     };
 
     const handleChange = (e) => {
@@ -58,6 +63,7 @@ const Register = () => {
                                         <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
+                                        
                                     </div>
                                     <div className="md:w-100">
                                         <input
@@ -70,6 +76,7 @@ const Register = () => {
                                             value={email}
                                             required
                                         />
+                                        <p className="errorMsg">{error?"Emailaddress already in use":""}</p>
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -88,7 +95,7 @@ const Register = () => {
                                             onChange={handleChange}
                                             value={password}
                                             required
-                                        />
+                                        />                                     
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
