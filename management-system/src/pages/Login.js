@@ -53,7 +53,7 @@ const Login = ({ }) => {
                             <img src={formimg} />
                         </div>
                         <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-                            <form className="w-full px-0 py-6 sm:px-12 user-form" onSubmit={handleSubmit}>
+                            <form className="w-full px-4 py-6 sm:px-12 md:px-12 lg:px-12 user-form" onSubmit={handleSubmit}>
                                 <h1 className='text-center text-2xl sm:text-4xl font-bold mb-3'>Sign In</h1>
                                 <p className='text-center mb-3'><span>Don't have an Account yet?</span> <Link to="/register" className='forlogin'>Register</Link></p>
                                 <div className="md:items-center mb-6">
