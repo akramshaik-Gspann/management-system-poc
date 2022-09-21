@@ -85,8 +85,8 @@
   --ag-borders-row: dashed 5px;
   /* --ag-row-border-color: rgb(150, 150, 200); */
 
-  --ag-header-foreground-color: black;
-  --ag-header-background-color: rgba(0, 0, 0, 0.267);
+  --ag-header-foreground-color: #FCFCFC;
+  --ag-header-background-color: #397EF6;
 
   /* text-align: center; */
   /* then add back a border between rows */

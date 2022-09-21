@@ -45,8 +45,8 @@ function Gridtable() {
     { headerName: "Last Updated", field: "lastUpdated" },
     {
       headerName: "Actions", field: "id", cellRendererFramework: (params) => <div>
-        <CreateIcon className='edit' onClick={() => handleUpdate(params.data)} />&nbsp;&nbsp;
-        <DeleteOutlineIcon className='delete' onClick={() => handleDelete(params.value)} />
+        <CreateIcon className='edit' onClick={() => handleUpdate(params.data)} />
+        {/* <DeleteOutlineIcon className='delete' onClick={() => handleDelete(params.value)} /> */}
       </div>
     }
   ]
@@ -109,10 +109,16 @@ function Gridtable() {
   }
   const defaultColDef = {
     // sortable: true,
-    flex: 1
-    // filter: true,
-    // floatingFilter: true
+    flex: 1,
+    onFirstDataRendered: onFirstDataRendered,
   }
+
+  
+  function onFirstDataRendered(params) {
+    params.data.sizeColumnsToFit();
+  }
+
+
   //Filter by Catalog Type - Starts
   const onFilterTextBoxChanged = useCallback(() => {
     gridRef.current.api.setQuickFilter(
