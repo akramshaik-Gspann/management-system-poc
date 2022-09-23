@@ -82,7 +82,7 @@ function Gridtable() {
   };
   const onChange = (e) => {
     const { value, id } = e.target;
-    // console.log(value,id)
+    console.log(value, id)
     setFormData({ ...formData, [id]: value });
   };
   const onGridReady = (params) => {
@@ -106,6 +106,7 @@ function Gridtable() {
     }
   };
   const handleFormSubmit = () => {
+    console.log(formData);
     if (formData.id) {
       //updating a user
       const confirm = window.confirm(
@@ -139,6 +140,7 @@ function Gridtable() {
           getUsers();
         });
     }
+
   };
   const defaultColDef = {
     // sortable: true,
@@ -150,17 +152,17 @@ function Gridtable() {
     params.data.sizeColumnsToFit();
   }
 
-//Filter by Catalog Type - Starts
-const onFilterTextBoxChanged = useCallback((event) => {
-  if (event.target.value === "All") {
-    gridRef.current.api.setQuickFilter();
-  } else {
-    gridRef.current.api.setQuickFilter(
-      document.getElementById("filter-text-box").value
-    );
-  }
-}, []);
-//Filter by Catalog Type - Ends
+  //Filter by Catalog Type - Starts
+  const onFilterTextBoxChanged = useCallback((event) => {
+    if (event.target.value === "All") {
+      gridRef.current.api.setQuickFilter();
+    } else {
+      gridRef.current.api.setQuickFilter(
+        document.getElementById("filter-text-box").value
+      );
+    }
+  }, []);
+  //Filter by Catalog Type - Ends
 
   function ImportData() {
     const [excelFile, setExcelFile] = useState(null);
@@ -180,14 +182,14 @@ const onFilterTextBoxChanged = useCallback((event) => {
             const worksheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[worksheetName];
             const data = XLSX.utils.sheet_to_json(worksheet);
-            if(tableData.length!=0){
-              let mergeddata =[...data, ...tableData];
+            if (tableData.length != 0) {
+              let mergeddata = [...data, ...tableData];
               setTableData(mergeddata);
             }
-            else{
+            else {
               setTableData(data);
             }
-           
+
             console.log([data]);
             alert("imported Succefully");
           };
@@ -202,19 +204,19 @@ const onFilterTextBoxChanged = useCallback((event) => {
     return (
       <div>
         {/* <label for="fileupload">Select a file to upload </label> */}
-          <input
-           id="fileupload"
-            type="file"
-            className=""
-            onChange={handleFile}
-            required
-          ></input>
-         
-          {excelFileError && (
-            <div className="text-danger" style={{ marginTop: 5 + "px" }}>
-              {excelFileError}
-            </div>
-          )}
+        <input
+          id="fileupload"
+          type="file"
+          className=""
+          onChange={handleFile}
+          required
+        ></input>
+
+        {excelFileError && (
+          <div className="text-danger" style={{ marginTop: 5 + "px" }}>
+            {excelFileError}
+          </div>
+        )}
       </div>
     );
   }
@@ -233,7 +235,7 @@ const onFilterTextBoxChanged = useCallback((event) => {
           <option value="Jumpers">Jumpers</option>
         </select>
       </Grid>
-     
+
       <div className="ag-theme-alpine" style={{ height: "400px" }}>
         <AgGridReact
           ref={gridRef}
@@ -249,6 +251,7 @@ const onFilterTextBoxChanged = useCallback((event) => {
         data={formData}
         onChange={onChange}
         handleFormSubmit={handleFormSubmit}
+        totalItems={tableData ? tableData.length : 0}
       />
     </div>
   );
