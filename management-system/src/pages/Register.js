@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
-import { registerSuccess } from '../redux/actions';
 import formimg from '../Images/form.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,7 +25,7 @@ const Register = () => {
 
     
 
-    const { currentUser, registerFail, error, registerSuccess } = useSelector((state) => state.user);
+    const { currentUser, registerFail, error } = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
     // useEffect(() => {
@@ -46,10 +45,9 @@ const Register = () => {
         }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
-        toast("Registration Failed!");
-        dispatch(registerFail(error.message))
-        dispatch(registerSuccess(email, password));
         toast("Registration Successful!");
+        dispatch(registerFail(error.message))
+        dispatch(registerInitiate(email, password));
         navigate('/login');
         // navigate('/register');
     };
