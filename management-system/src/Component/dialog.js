@@ -6,8 +6,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { TextField } from '@material-ui/core';
 
-export default function FormDialog({open,handleClose,data,onChange,handleFormSubmit}) {
- const {id,catalogId,catalogType,itemName,priceNumber,color,Stock,lastUpdated}=data
+export default function FormDialog({ open, handleClose, data, onChange, handleFormSubmit, totalItems }) {
+  const { id, catalogId, catalogType, itemName, priceNumber, color, Stock, lastUpdated } = data
+  console.log(totalItems);
+
 
   return (
     <div>
@@ -17,25 +19,25 @@ export default function FormDialog({open,handleClose,data,onChange,handleFormSub
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{id?"Update product":"Add new product"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{id ? "Update product" : "Add new product"}</DialogTitle>
         <DialogContent>
-         <form>
-             <TextField id="id" value={id}  placeholder="Enter Item No:" label="Item No:" variant="outlined" margin="dense" fullWidth />
-             <TextField id="catalogId" value={catalogId} onChange={e=>onChange(e)} placeholder="Enter catalogId" label="catalogId" variant="outlined" margin="dense" fullWidth />
-             <TextField id="catalogType" value={catalogType} onChange={e=>onChange(e)} placeholder="Enter catalogType" label="catalogType" variant="outlined" margin="dense" fullWidth />
-             <TextField id="itemName" value={itemName} onChange={e=>onChange(e)} placeholder="Enter Item Name" label="Item Name" variant="outlined" margin="dense" fullWidth />
-             <TextField id="priceNumber" value={priceNumber} onChange={e=>onChange(e)} placeholder="Enter Price Number" label="Price" variant="outlined" margin="dense" fullWidth />
-             <TextField id="color" value={color} onChange={e=>onChange(e)} placeholder="Enter color" label="color" variant="outlined" margin="dense" fullWidth />
-             <TextField id="Stock" value={Stock} onChange={e=>onChange(e)} placeholder="Enter Stock" label="Stock" variant="outlined" margin="dense" fullWidth />
-             {/* <TextField id="lastUpdated" value={lastUpdated} onChange={e=>onChange(e)} placeholder="Date" label="Date" variant="outlined" margin="dense" fullWidth /> */}
-         </form>
+          <form>
+            <TextField id="id" value={id ? id : totalItems + 1} disabled placeholder="Enter Item No:" label="Item No:" variant="outlined" margin="dense" fullWidth />
+            <TextField id="catalogId" value={catalogId} onChange={e => onChange(e)} placeholder="Enter catalogId" label="catalogId" variant="outlined" margin="dense" fullWidth />
+            <TextField id="catalogType" value={catalogType} onChange={e => onChange(e)} placeholder="Enter catalogType" label="catalogType" variant="outlined" margin="dense" fullWidth />
+            <TextField id="itemName" value={itemName} onChange={e => onChange(e)} placeholder="Enter Item Name" label="Item Name" variant="outlined" margin="dense" fullWidth />
+            <TextField id="priceNumber" value={priceNumber} onChange={e => onChange(e)} placeholder="Enter Price Number" label="Price" variant="outlined" margin="dense" fullWidth />
+            <TextField id="color" value={color} onChange={e => onChange(e)} placeholder="Enter color" label="color" variant="outlined" margin="dense" fullWidth />
+            <TextField id="Stock" value={Stock} onChange={e => onChange(e)} placeholder="Enter Stock" label="Stock" variant="outlined" margin="dense" fullWidth />
+            <TextField id="lastUpdated" value={lastUpdated} onChange={e => onChange(e)} type="date" placeholder="mm--dd--yyyy" variant="outlined" margin="dense" fullWidth />
+          </form>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary" variant="outlined">
             Cancel
           </Button>
-          <Button  color="primary" onClick={()=>handleFormSubmit()} variant="contained">
-            {id?"Update":"Submit"}
+          <Button color="primary" onClick={() => handleFormSubmit()} variant="contained">
+            {id ? "Update" : "Submit"}
           </Button>
         </DialogActions>
       </Dialog>
