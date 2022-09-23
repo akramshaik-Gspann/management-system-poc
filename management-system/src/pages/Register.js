@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
+import { registerSuccess } from '../redux/actions';
 import formimg from '../Images/form.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { REGISTER_SUCCESS } from '../redux/actionTypes';
 
 const Register = () => {
     const [state, setState] = useState({
@@ -20,14 +24,16 @@ const Register = () => {
 
     })
 
-    const { currentUser, registerFail, error } = useSelector((state) => state.user);
+    
+
+    const { currentUser, registerFail, error, registerSuccess } = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
-    useEffect(() => {
-        if (currentUser) {
-            navigate("/gridtable")
-        }
-    }, [currentUser, navigate]);
+    // useEffect(() => {
+    //     if (currentUser) {
+    //         navigate("/gridtable")
+    //     }
+    // }, [currentUser, navigate]);
 
     const dispatch = useDispatch();
 
@@ -40,16 +46,21 @@ const Register = () => {
         }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
+        toast("Registration Failed!");
         dispatch(registerFail(error.message))
+        dispatch(registerSuccess(email, password));
+        toast("Registration Successful!");
         navigate('/login');
         // navigate('/register');
     };
-
-    // const handleChange = (e) => {
-    //     let { name, value } = e.target;
-    //     setState({ ...state, [name]: value });
+    // const notify = () => {
+    //     if(REGISTER_SUCCESS === false){
+    //         toast("Registration Failed!");
+    //     }else{
+    //         toast("Registration Successful!");
+    //     }
+        
     // }
-
     const handleChange = (e) => {
         let { name, value } = e.target;
         // setState({ ...state, [name]: value });
@@ -174,9 +185,10 @@ const Register = () => {
                                 </div>
                                 <div className="md:flex md:items-center lg:text-center">
                                     <div className="m-auto w-100">
-                                        <button type="submit" className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 transition duration-150 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ... ">
+                                        <button type="submit" onClick={handleSubmit} className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 transition duration-150 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ... ">
                                             Create an Account
                                         </button>
+                                        <ToastContainer />
                                     </div>
                                 </div>
                             </form>

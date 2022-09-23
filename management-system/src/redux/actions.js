@@ -5,9 +5,8 @@ const registerStart = () => ({
     type: types.REGISTER_START,
 });
 
-const registerSuccess = (user) => ({
-    type: types.REGISTER_SUCCESS,
-    payload: user,
+const registerSuccess = () => ({
+    type: types.REGISTER_SUCCESS
 });
 
 const registerFail = (error) => ({
