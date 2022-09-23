@@ -9,14 +9,14 @@ const Register = () => {
         email: "",
         password: "",
         passwordConfirm: "",
-        error:""
+        error: ""
     });
 
     const [err, setErr] = useState({
         email: '',
         password: '',
         passwordConfirm: '',
-        err:""
+        err: ""
 
     })
 
@@ -35,7 +35,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (state.user !== currentUser && password !== passwordConfirm ) {
+        if (state.user !== currentUser && password !== passwordConfirm) {
             return;
         }
         dispatch(registerInitiate(email, password));
@@ -97,7 +97,7 @@ const Register = () => {
             return stateObj;
         });
     }
-    
+
     return (
         <div className='container'>
             <section className="main-form">
@@ -115,7 +115,7 @@ const Register = () => {
                                         <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
                                             Email:
                                         </label>
-                                        
+
                                     </div>
                                     <div className="md:w-100">
                                         <input
@@ -129,7 +129,7 @@ const Register = () => {
                                             onBlur={validateInput}
                                         />
                                         {err.email && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.email}</span>}
-                                        <p className="errorMsg">{error?"Email address already in use":""}</p>
+                                        <p className="errorMsg">{error ? "Email address already in use" : ""}</p>
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -148,8 +148,8 @@ const Register = () => {
                                             onChange={handleChange}
                                             value={password}
                                             onBlur={validateInput}
-                                        /> 
-                                        {err.password && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.password}</span>}                                    
+                                        />
+                                        {err.password && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.password}</span>}
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
