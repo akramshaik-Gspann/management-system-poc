@@ -20,13 +20,14 @@ export default function FormDialog({open,handleClose,data,onChange,handleFormSub
         <DialogTitle id="alert-dialog-title">{id?"Update product":"Add new product"}</DialogTitle>
         <DialogContent>
          <form>
-             <TextField id="catalogId" value={catalogId} onChange={e=>onChange(e)} placeholder="Enter catalogId" label="Name" variant="outlined" margin="dense" fullWidth />
+             <TextField id="id" value={id}  placeholder="Enter Item No:" label="Item No:" variant="outlined" margin="dense" fullWidth />
+             <TextField id="catalogId" value={catalogId} onChange={e=>onChange(e)} placeholder="Enter catalogId" label="catalogId" variant="outlined" margin="dense" fullWidth />
              <TextField id="catalogType" value={catalogType} onChange={e=>onChange(e)} placeholder="Enter catalogType" label="catalogType" variant="outlined" margin="dense" fullWidth />
              <TextField id="itemName" value={itemName} onChange={e=>onChange(e)} placeholder="Enter Item Name" label="Item Name" variant="outlined" margin="dense" fullWidth />
              <TextField id="priceNumber" value={priceNumber} onChange={e=>onChange(e)} placeholder="Enter Price Number" label="Price" variant="outlined" margin="dense" fullWidth />
              <TextField id="color" value={color} onChange={e=>onChange(e)} placeholder="Enter color" label="color" variant="outlined" margin="dense" fullWidth />
              <TextField id="Stock" value={Stock} onChange={e=>onChange(e)} placeholder="Enter Stock" label="Stock" variant="outlined" margin="dense" fullWidth />
-             <TextField id="lastUpdated" value={lastUpdated} onChange={e=>onChange(e)} placeholder="Date" label="Date" variant="outlined" margin="dense" fullWidth />
+             {/* <TextField id="lastUpdated" value={lastUpdated} onChange={e=>onChange(e)} placeholder="Date" label="Date" variant="outlined" margin="dense" fullWidth /> */}
          </form>
         </DialogContent>
         <DialogActions>
