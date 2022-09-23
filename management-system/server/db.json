@@ -12,6 +12,7 @@
     },
     {
       "catalogId": "CMR",
+<<<<<<< Updated upstream
       "catalogType": "PANT",
       "itemName": "FULL",
       "priceNumber": "2000",
@@ -69,6 +70,43 @@
       "Stock": "1",
       "lastUpdated": "2022-09-27",
       "id": 7
+=======
+      "catalogType": "Trousers",
+      "itemName": "Miller casual",
+      "priceNumber": "48",
+      "color": "Green",
+      "Stock": "24",
+      "lastUpdated": "2022-05-07",
+      "id": "17"
+    },
+    {
+      "catalogId": "BMR",
+      "catalogType": "Jumpers",
+      "itemName": "Miller Office",
+      "priceNumber": "67",
+      "color": "Red",
+      "Stock": "16",
+      "lastUpdated": "2022-05-06",
+      "id": "18"
+    },
+    {
+      "catalogId": "Sril",
+      "catalogType": 456789,
+      "itemName": 5,
+      "priceNumber": 24.4,
+      "color": "N",
+      "id": "aLbNGao"
+    },
+    {
+      "catalogId": "",
+      "catalogType": "",
+      "itemName": "",
+      "priceNumber": "",
+      "color": "",
+      "Stock": "",
+      "lastUpdated": "",
+      "id": "Lz78Ogv"
+>>>>>>> Stashed changes
     }
   ]
 }
