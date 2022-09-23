@@ -82,7 +82,7 @@ function Gridtable() {
   };
   const onChange = (e) => {
     const { value, id } = e.target;
-    // console.log(value,id)
+    console.log(value, id);
     setFormData({ ...formData, [id]: value });
   };
   const onGridReady = (params) => {
@@ -106,6 +106,7 @@ function Gridtable() {
     }
   };
   const handleFormSubmit = () => {
+    console.log(formData);
     if (formData.id) {
       //updating a user
       const confirm = window.confirm(
@@ -256,6 +257,7 @@ function Gridtable() {
         data={formData}
         onChange={onChange}
         handleFormSubmit={handleFormSubmit}
+        totalItems={tableData ? tableData.length : 0}
       />
     </div>
   );
