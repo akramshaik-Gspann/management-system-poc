@@ -43,22 +43,19 @@ const Register = () => {
         if (state.user !== currentUser && password !== passwordConfirm) {
             return;
         }
+        if(currentUser){
+            toast("Registration Successful!");
+        }else{
+            toast("Registration Failed!");
+        }
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
-        toast("Registration Successful!");
+        
         dispatch(registerFail(error.message))
         dispatch(registerInitiate(email, password));
         navigate('/login');
         // navigate('/register');
     };
-    // const notify = () => {
-    //     if(REGISTER_SUCCESS === false){
-    //         toast("Registration Failed!");
-    //     }else{
-    //         toast("Registration Successful!");
-    //     }
-        
-    // }
     const handleChange = (e) => {
         let { name, value } = e.target;
         // setState({ ...state, [name]: value });
