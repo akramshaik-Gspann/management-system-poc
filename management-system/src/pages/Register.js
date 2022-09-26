@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
 import formimg from '../Images/form.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { REGISTER_SUCCESS } from '../redux/actionTypes';
 
 const Register = () => {
     const [state, setState] = useState({
@@ -20,14 +23,16 @@ const Register = () => {
 
     })
 
+    
+
     const { currentUser, registerFail, error } = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
-    useEffect(() => {
-        if (currentUser) {
-            navigate("/gridtable")
-        }
-    }, [currentUser, navigate]);
+    // useEffect(() => {
+    //     if (currentUser) {
+    //         navigate("/gridtable")
+    //     }
+    // }, [currentUser, navigate]);
 
     const dispatch = useDispatch();
 
@@ -38,18 +43,20 @@ const Register = () => {
         if (state.user !== currentUser && password !== passwordConfirm) {
             return;
         }
+        // if(currentUser){
+        //     toast("Registration Successful!");
+        // }else{
+        //     toast("Registration Failed!");
+        // }
+        
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
-        dispatch(registerFail(error.message))
+        
+        // dispatch(registerFail(error.message))
+        // dispatch(registerInitiate(email, password));
         navigate('/login');
         // navigate('/register');
     };
-
-    // const handleChange = (e) => {
-    //     let { name, value } = e.target;
-    //     setState({ ...state, [name]: value });
-    // }
-
     const handleChange = (e) => {
         let { name, value } = e.target;
         // setState({ ...state, [name]: value });
@@ -129,7 +136,7 @@ const Register = () => {
                                             onBlur={validateInput}
                                         />
                                         {err.email && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.email}</span>}
-                                        <p className="errorMsg">{error ? "Email address already in use" : ""}</p>
+                                        {/* <p className="errorMsg">{error ? "Email address already in use" : ""}</p> */}
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">
@@ -174,9 +181,10 @@ const Register = () => {
                                 </div>
                                 <div className="md:flex md:items-center lg:text-center">
                                     <div className="m-auto w-100">
-                                        <button type="submit" className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 transition duration-150 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ... ">
+                                        <button type="submit" onClick={handleSubmit} className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 transition duration-150 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ... ">
                                             Create an Account
                                         </button>
+                                        <ToastContainer />
                                     </div>
                                 </div>
                             </form>

@@ -184,3 +184,35 @@ button {
     opacity: 1;
   }
 }
+
+.sctockMain {
+  display: flex;
+  gap: 4px;
+}
+.sctockValue {
+  width: 25px;
+}
+.stockCommon {
+  width: 40px;
+  height: 35px;
+  border: 2px solid grey;
+  display: block;
+}
+.stcokRed {
+  background-color: red;
+}
+.stcokgreen {
+  background-color: green;
+}
+.stcokyellow {
+  background-color: yellow;
+}
+.input-text {
+  font-weight: 450 ;
+}
+.input-search {
+ margin-left: 5px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
