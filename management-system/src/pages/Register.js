@@ -43,16 +43,17 @@ const Register = () => {
         if (state.user !== currentUser && password !== passwordConfirm) {
             return;
         }
-        if(currentUser){
-            toast("Registration Successful!");
-        }else{
-            toast("Registration Failed!");
-        }
+        // if(currentUser){
+        //     toast("Registration Successful!");
+        // }else{
+        //     toast("Registration Failed!");
+        // }
+        
         dispatch(registerInitiate(email, password));
         setState({ email: "", password: "", passwordConfirm: "" });
         
-        dispatch(registerFail(error.message))
-        dispatch(registerInitiate(email, password));
+        // dispatch(registerFail(error.message))
+        // dispatch(registerInitiate(email, password));
         navigate('/login');
         // navigate('/register');
     };
@@ -135,7 +136,7 @@ const Register = () => {
                                             onBlur={validateInput}
                                         />
                                         {err.email && <span className='err bg-red-100 border border-red-400 text-red-700 text-s inline-block mt-1 px-4 py-2 rounded'>{err.email}</span>}
-                                        <p className="errorMsg">{error ? "Email address already in use" : ""}</p>
+                                        {/* <p className="errorMsg">{error ? "Email address already in use" : ""}</p> */}
                                     </div>
                                 </div>
                                 <div className="md:items-center mb-6">

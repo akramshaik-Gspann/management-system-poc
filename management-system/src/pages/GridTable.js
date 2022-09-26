@@ -14,6 +14,8 @@ import FormDialog from "../Component/dialog";
 import { Data } from "../Component/Uplod/Data";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import * as XLSX from "xlsx";
 const initialValue = {
   catalogId: "",
@@ -43,16 +45,25 @@ function Gridtable() {
     setOpen(false);
     setFormData(initialValue);
   };
+  const simpleComp = params => {
+    console.log(params, 'checking')
+    return (
+      <div className="sctockMain">
+        <div className="sctockValue">{params.value}</div>
+        <div className={params.value < 5 ? 'stcokRed stockCommon' : (params.value > 30 ? ' stcokgreen stockCommon' : 'stcokyellow stockCommon')} > </div>
+      </div>
+    )
+  }
   const url = `http://localhost:4000/users`;
   const columnDefs = [
-    { headerName: "Item No", field: "id" },
+    { headerName: "Item No", field: "id", sortable: true },
     { headerName: "Catalog ID", field: "catalogId" },
     { headerName: "Catalog Type", field: "catalogType" },
     { headerName: "Item Name", field: "itemName" },
-    { headerName: "Price", field: "priceNumber" },
+    { headerName: "Price", field: "priceNumber", sortable: true },
     { headerName: "Color", field: "color" },
-    { headerName: "Stock", field: "Stock" },
-    { headerName: "Last Updated", field: "lastUpdated" },
+    { headerName: "Stock", field: "Stock",cellRenderer: simpleComp},
+    { headerName: "Last Updated", field: "lastUpdated", sortable: true },
     {
       headerName: "Actions",
       field: "id",
@@ -163,7 +174,14 @@ function Gridtable() {
     }
   }, []);
   //Filter by Catalog Type - Ends
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
 
+  const onFiletedBySearchFn = (e) => {
+    console.log(e.target.value, 'e.target.value')
+    gridRef.current.api.setQuickFilter(e.target.value);
+  }
   function ImportData() {
     const [excelFile, setExcelFile] = useState(null);
     const [excelFileError, setExcelFileError] = useState(null);
@@ -227,6 +245,106 @@ function Gridtable() {
           Add New
         </button>
         <ImportData />
+        <h3 className="input-text">Search :
+          <input
+            type="text"
+            className="input-search"
+            placeholder="Search..."
+            onChange={onFiletedBySearchFn}
+          />
+        </h3>
+        {/* <Menu
+          as="div"
+          onChange={onFilterTextBoxChanged}
+          className="relative inline-block text-left"
+        >
+          <div>
+            <Menu.Button
+              value="All"
+              className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+            >
+              Filter by Catalog type
+              <ChevronDownIcon
+                className="-mr-1 ml-2 h-5 w-5"
+                aria-hidden="true"
+              />
+            </Menu.Button>
+          </div>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="py-1">
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      href="#"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block px-4 py-2 text-sm"
+                      )}
+                      value="Jeans"
+                    >
+                      Jeans
+                    </a>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      href="#"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block px-4 py-2 text-sm"
+                      )}
+                      value="Shirts"
+                    >
+                      Shirts
+                    </a>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      href="#"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block px-4 py-2 text-sm"
+                      )}
+                      value="Trousers"
+                    >
+                      Trousers
+                    </a>
+                  )}
+                </Menu.Item>
+                <form method="POST" action="#">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        type="submit"
+                        className={classNames(
+                          active
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-700",
+                          "block w-full px-4 py-2 text-left text-sm"
+                        )}
+                        value="Jumpers"
+                      >
+                        Jumpers
+                      </button>
+                    )}
+                  </Menu.Item>
+                </form>
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu> */}
         <select className="filter-dropdown" id="filter-text-box" onChange={onFilterTextBoxChanged}>
           <option value="All">Filter by Catalog type</option>
           <option value="Jeans">Jeans</option>
