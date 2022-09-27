@@ -9,13 +9,10 @@ import "../App.css";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import { Grid, Button } from "@material-ui/core";
+import { Grid} from "@material-ui/core";
 import FormDialog from "../Component/dialog";
-import { Data } from "../Component/Uplod/Data";
+// import { Data } from "../Component/Uplod/Data";
 import CreateIcon from "@material-ui/icons/Create";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-// import { Menu, Transition } from "@headlessui/react";
-// import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import * as XLSX from "xlsx";
 const initialValue = {
   catalogId: "",
@@ -105,17 +102,17 @@ function Gridtable() {
     handleClickOpen();
   };
   //deleting a user
-  const handleDelete = (id) => {
-    const confirm = window.confirm(
-      "Are you sure, you want to delete this row",
-      id
-    );
-    if (confirm) {
-      fetch(url + `/${id}`, { method: "DELETE" })
-        .then((resp) => resp.json())
-        .then((resp) => getUsers());
-    }
-  };
+  // const handleDelete = (id) => {
+  //   const confirm = window.confirm(
+  //     "Are you sure, you want to delete this row",
+  //     id
+  //   );
+  //   if (confirm) {
+  //     fetch(url + `/${id}`, { method: "DELETE" })
+  //       .then((resp) => resp.json())
+  //       .then((resp) => getUsers());
+  //   }
+  // };
   const handleFormSubmit = () => {
     console.log(formData);
     if (formData.id) {
@@ -185,7 +182,6 @@ function Gridtable() {
   function ImportData() {
     const [excelFile, setExcelFile] = useState(null);
     const [excelFileError, setExcelFileError] = useState(null);
-    const [excelData, setExcelData] = useState(null);
     const fileType = ["application/vnd.ms-excel"];
     const handleFile = (e) => {
       let selectedFile = e.target.files[0];
@@ -200,7 +196,7 @@ function Gridtable() {
             const worksheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[worksheetName];
             const data = XLSX.utils.sheet_to_json(worksheet);
-            if (tableData.length != 0) {
+            if (tableData.length !== 0) {
               let mergeddata = [...data, ...tableData];
               setTableData(mergeddata);
             }

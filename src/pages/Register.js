@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
 import formimg from '../Images/form.png';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-import { REGISTER_SUCCESS } from '../redux/actionTypes';
 
 const Register = () => {
     const [state, setState] = useState({
@@ -25,7 +22,7 @@ const Register = () => {
 
     
 
-    const { currentUser, registerFail, error } = useSelector((state) => state.user);
+    const { currentUser} = useSelector((state) => state.user);
     // const history = useHistory();
     const navigate = useNavigate();
     // useEffect(() => {
@@ -111,7 +108,7 @@ const Register = () => {
                 <div className="px-0 sm:px-6 h-screen text-gray-800">
                     <div className="flex-none sm:flex xl:justify-center h-screen lg:justify-between justify-center items-center flex-wrap h-full g-6">
                         <div className='form-left hidden lg:block grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0'>
-                            <img src={formimg} />
+                            <img src={formimg} alt="" />
                         </div>
                         <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
                             <form className="w-full px-4 py-6 sm:px-12 md:px-12 lg:px-12 user-form" onSubmit={handleSubmit}>
