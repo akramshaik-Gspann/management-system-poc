@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registerInitiate } from '../redux/actions';
 import formimg from '../Images/form.png';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import { REGISTER_SUCCESS } from '../redux/actionTypes';
 
 const Register = () => {
@@ -184,7 +184,7 @@ const Register = () => {
                                         <button type="submit" onClick={handleSubmit} className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 transition duration-150 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ... ">
                                             Create an Account
                                         </button>
-                                        <ToastContainer />
+                                        {/* <ToastContainer /> */}
                                     </div>
                                 </div>
                             </form>
