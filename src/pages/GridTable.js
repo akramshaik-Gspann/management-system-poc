@@ -14,8 +14,8 @@ import FormDialog from "../Component/dialog";
 import { Data } from "../Component/Uplod/Data";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+// import { Menu, Transition } from "@headlessui/react";
+// import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import * as XLSX from "xlsx";
 const initialValue = {
   catalogId: "",
