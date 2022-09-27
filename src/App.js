@@ -9,8 +9,6 @@ import { setUser } from './redux/actions';
 import Header from './pages/Header';
 import store from './redux/store';
 import Gridtable from './pages/GridTable';
-import Uplod from './Component/Uplod/Uplod';
-import Ag from './Component/Uplod/Ag';
 import Footer from './pages/Footer';
 
 
@@ -39,8 +37,6 @@ function App() {
             <Route exact path='/gridtable' element={<Gridtable/>} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/register' element={<Register />} />
-            <Route exact path='/uplod' element={<Uplod />} />
-            <Route exact path='/ag' element={<Ag />} />
           </Routes>
         </div>
         <Footer/>
